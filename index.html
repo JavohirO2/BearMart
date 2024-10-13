@@ -1,15 +1,48 @@
-<html>
-    <head>
-        <title>
-            BearMart
-        </title>
-        <h4>Online grocery delivery application for University of Cincinnati</h4>
-    </head>
-    <p>Samba has access!</p>
-    <p>Ali has access!</p>
-    <p>Javohir has access!</p>
-    <p>Anurag has access!</p>
-    <p>Osama has access!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mart Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent the form from submitting
 
+            // Get the input values
+            const ucId = document.getElementById('uc-id').value;
+            const password = document.getElementById('password').value;
 
+            // Check if the credentials match 'admin' and 'admin'
+            if (ucId === 'admin' && password === 'admin') {
+                // Redirect to home.html
+                window.location.href = 'home.html';
+            } else {
+                // Display an error message
+                alert('Invalid UC ID or Password');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="logo.png" alt="Mart Logo">
+        </div>
+        <div class="right-section">
+            <h1>Mart</h1>
+            <form onsubmit="validateLogin(event)">
+                <div class="input-container">
+                    <label for="uc-id">UC ID</label>
+                    <input type="text" id="uc-id" placeholder="Enter your UC ID">
+                </div>
+                <div class="input-container">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
 </html>
