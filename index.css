@@ -1,0 +1,164 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Grid layout for the entire page */
+body {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "nav";
+    gap: 10px;
+}
+
+/* Header styling using Flexbox */
+header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between; /* Space between the title and the other elements */
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+    margin-right: 20px; /* Add space between h1 and the search bar */
+}
+
+/* Search bar with extended length */
+header input[type="text"] {
+    flex: 3; /* Make the search bar three times longer */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Button styling with aligned icons */
+header button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+}
+
+header button i {
+    vertical-align: middle;
+}
+
+/* Grouping the search and buttons together */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation styling */
+nav {
+    grid-area: nav;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Media Query for small screens */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-right {
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    header input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        padding: 10px 0;
+    }
+}
+/* Slider container styling */
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Slider image */
+.slider img {
+    width: 100%;
+    height: auto;
+}
+
+/* Left and right buttons */
+.left-btn, .right-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+/* Radio button container */
+.slider-nav {
+    margin-top: 10px;
+}
+
+.slider-radio {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slider-radio:checked {
+    accent-color: #333; /* Change the radio button color for the current slide */
+}
