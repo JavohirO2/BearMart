@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mart - Grocery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="Mart Logo">
+                <h1>Mart</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="food.html">Food</a></li>
+                    <li><a href="grocery.html">Grocery</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="bathroom.html">Bathroom & Laundry</a></li>
+                </ul>
+            </nav>
+            <div class="cart">
+                <img src="cart-icon.png" alt="Cart Icon">
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="banner">
+            <img src="banner-image.jpg" alt="Banner Image">
+        </div>
+
+        <div class="content">
+            <h2>Grocery Category</h2>
+            <div class="food-items">
+                <div class="food-item">
+                    <img src="https://res.cloudinary.com/hellofresh/image/upload/dpr_auto,f_auto,fl_lossy,q_80,w_640/v1/hellofresh_s3/image/5554305d4dab7106578b456e.png" alt="Fresh Groceries">
+                    <h3>Sahaya</h3>
+                    <p>Price: $15</p>
+                    <p>Quantity Available: 50</p>
+                    <button onclick="orderNow('Fresh Groceries')">Add to Cart</button>
+                </div>
+                <div class="food-item">
+                    <img src="http://primer.com.ph/tips-guides/wp-content/uploads/sites/5/2017/07/ampalaya.jpg" alt="Ampalaya">
+                    <h3>Nirvana</h3>
+                    <p>Price: $9</p>
+                    <p>Quantity Available: 60</p>
+                    <button onclick="orderNow('Ampalaya')">Add to Cart</button>
+                </div>
+                <div class="food-item">
+                    <img src="https://sciencebob.com/wp-content/uploads/2015/04/tomato_small.png" alt="Tomato">
+                    <h3>Kiryana</h3>
+                    <p>Price: $5</p>
+                    <p>Quantity Available: 100</p>
+                    <button onclick="orderNow('Tomato')">Add to Cart</button>
+                </div>
+                <div class="food-item">
+                    <img src="http://www.aktiva-ks.com/wp-content/uploads/2016/09/Picture10.png" alt="Vegetables">
+                    <h3>Sahaya</h3>
+                    <p>Price: $5</p>
+                    <p>Quantity Available: 120</p>
+                    <button onclick="orderNow('Vegetables')">Add to Cart</button>
+                </div>
+                <div class="food-item">
+                    <img src="https://rewastore.in/image/thumbnails/18/7e/regular_potato_png-100332-250x250.png" alt="Potato">
+                    <h3>Kirwana</h3>
+                    <p>Price: $4</p>
+                    <p>Quantity Available: 115</p>
+                    <button onclick="orderNow('Potato')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" style="display:none;">
+        <div class="cart-modal-content">
+            <span id="close-cart">&times;</span>
+            <h3>Your Cart</h3>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <button id="checkout">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Include the scripts.js file -->
+    <script src="scripts.js"></script>
+
+    <script>
+        // Ensure that the cart script is included to manage the cart
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        
+        // Show the cart modal when cart icon is clicked
+        document.querySelector('.cart').addEventListener('click', () => {
+            cartModal.style.display = 'block';
+            showCart(); // Function defined in scripts.js
+        });
+
+        // Close the cart modal
+        closeCart.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

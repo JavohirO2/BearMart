@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mart - Books</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="Mart Logo">
+                <h1>Mart</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="food.html">Food</a></li>
+                    <li><a href="grocery.html">Grocery</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="bathroom.html">Bathroom & Laundry</a></li>
+                </ul>
+            </nav>
+            <div class="cart" onclick="toggleCart()">
+                <img src="cart-icon.png" alt="Cart Icon">
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" style="display: none;">
+        <div class="cart-modal-content">
+            <span id="close-cart" onclick="toggleCart()">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <button id="checkout" onclick="checkout()" style="display: none;">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Banner Section -->
+    <main>
+        <div class="banner">
+            <img src="banner-image.jpg" alt="Banner Image">
+        </div>
+
+        <!-- Books Category Section -->
+        <div class="content">
+            <h2>Books Collection</h2>
+            <section class="book-items">
+                <div class="book-item">
+                    <img src="https://via.placeholder.com/150/0000FF/FFFFFF/?text=Book+1" alt="Book 1">
+                    <h3>Book Title 1</h3>
+                    <p>Author: Author Name 1</p>
+                    <p>Price: $19.99</p>
+                    <button onclick="orderNow('Book Title 1', 19.99)">Order Now</button>
+                </div>
+                
+                <div class="book-item">
+                    <img src="https://via.placeholder.com/150/FF0000/FFFFFF/?text=Book+2" alt="Book 2">
+                    <h3>Book Title 2</h3>
+                    <p>Author: Author Name 2</p>
+                    <p>Price: $15.99</p>
+                    <button onclick="orderNow('Book Title 2', 15.99)">Order Now</button>
+                </div>
+                
+                <div class="book-item">
+                    <img src="https://via.placeholder.com/150/FFFF00/000000/?text=Book+3" alt="Book 3">
+                    <h3>Book Title 3</h3>
+                    <p>Author: Author Name 3</p>
+                    <p>Price: $22.50</p>
+                    <button onclick="orderNow('Book Title 3', 22.50)">Order Now</button>
+                </div>
+
+                <div class="book-item">
+                    <img src="https://via.placeholder.com/150/00FF00/000000/?text=Book+4" alt="Book 4">
+                    <h3>Book Title 4</h3>
+                    <p>Author: Author Name 4</p>
+                    <p>Price: $18.75</p>
+                    <button onclick="orderNow('Book Title 4', 18.75)">Order Now</button>
+                </div>
+
+                <div class="book-item">
+                    <img src="https://via.placeholder.com/150/00FFFF/000000/?text=Book+5" alt="Book 5">
+                    <h3>Book Title 5</h3>
+                    <p>Author: Author Name 5</p>
+                    <p>Price: $14.99</p>
+                    <button onclick="orderNow('Book Title 5', 14.99)">Order Now</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

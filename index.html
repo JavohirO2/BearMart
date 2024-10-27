@@ -1,15 +1,49 @@
-<html>
-    <head>
-        <title>
-            BearMart
-        </title>
-        <h4>Online grocery delivery application for University of Cincinnati</h4>
-    </head>
-    <p>Samba has access!</p>
-    <p>Ali has access!</p>
-    <p>Javohir has access!</p>
-    <p>Anurag has access!</p>
-    <p>Osama has access!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mart Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Prevents the form from submitting and reloading the page
 
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
+            // Check if username and password match "admin"
+            if (username === 'admin' && password === 'admin') {
+                window.location.href = 'home.html'; // Redirects to home.html
+            } else {
+                alert('Invalid Username or Password'); // Shows an error message if login fails
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-page">
+        <div class="container">
+            <div class="left-section">
+                <!-- Logo or Image Here -->
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div class="right-section">
+                <h1>Login</h1>
+                <!-- Call validateLogin on form submission -->
+                <form class="form" onsubmit="validateLogin(event)">
+                    <div class="input-container">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter your username">
+                    </div>
+                    <div class="input-container">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password">
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
