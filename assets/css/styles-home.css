@@ -1,0 +1,145 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header Section */
+header {
+    background-color: #d50032; /* Red background for header */
+    padding: 10px 0;
+    color: white;
+    margin-bottom: 0; /* Removes margin between header and the next element */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Limits the width of header content */
+    margin: 0 auto; /* Centers the header content */
+    padding: 0 20px; /* Adds horizontal padding */
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Aligns logo text and image vertically */
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px; /* Space between logo and text */
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Spacing between navigation items */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Adds underline effect on hover */
+}
+
+.cart img {
+    width: 30px;
+    height: auto;
+}
+
+/* Banner Section */
+.banner {
+    width: 100%;
+    margin-top: 0; /* Ensure no gap between header and banner */
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the container without stretching */
+    border-radius: 0; /* No rounded edges, keeping the banner sharp */
+}
+
+/* Responsive Design */
+
+/* Tablet View */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* Stack header elements vertically */
+        text-align: center;
+    }
+
+    .logo img {
+        width: 40px; /* Scales down the logo */
+    }
+
+    .logo h1 {
+        font-size: 20px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation links vertically */
+        gap: 10px; /* Adjust spacing for vertical alignment */
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .banner img {
+        height: 300px; /* Adjust banner height for tablet screens */
+    }
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+    .header-container {
+        flex-direction: column; /* Keep elements stacked vertically */
+        text-align: center;
+    }
+
+    .logo img {
+        width: 30px; /* Further reduce the logo size */
+    }
+
+    .logo h1 {
+        font-size: 18px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Navigation items stacked */
+        gap: 8px; /* Less gap for mobile */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Adjust font size for mobile readability */
+    }
+
+    .banner img {
+        height: 250px; /* Banner height for mobile devices */
+    }
+
+    .cart img {
+        width: 25px; /* Smaller cart icon for mobile */
+    }
+}

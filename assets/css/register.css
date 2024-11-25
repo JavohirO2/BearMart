@@ -1,0 +1,109 @@
+/* General Body Styling */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #c90022;
+    font-family: Arial, sans-serif;
+}
+
+/* Common Page and Container Styling for Login and Register */
+.login-page, .register-page {
+    display: flex;
+    justify-content: center;
+    width: 200%;
+}
+
+.container {
+    display: flex;
+    max-width: 900px;
+    width: 200%;
+    background-color: rgba(255, 0, 0, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Left Section with Logo */
+.left-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: #c90022;
+    position: relative;
+}
+
+.logo-image {
+    width: 300px;
+    height: 200px;
+    opacity: 0.1;
+}
+
+/* Right Section with Form */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 40px;
+    background-color: #f67263;
+    text-align: center;
+}
+
+/* Heading Styling */
+h1 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Input Container Styling */
+.input-container {
+    text-align: left;
+    width: 100%;
+}
+
+.input-container label {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Input Field Styling */
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #FFE4B5;
+    font-size: 16px;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #C9302C;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #AC2925;
+}
