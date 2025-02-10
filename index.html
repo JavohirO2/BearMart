@@ -1,15 +1,61 @@
-<html>
-    <head>
-        <title>
-            BearMart
-        </title>
-        <h4>Online grocery delivery application for University of Cincinnati</h4>
-    </head>
-    <p>Samba has access!</p>
-    <p>Ali has access!</p>
-    <p>Javohir has access!</p>
-    <p>Anurag has access!</p>
-    <p>Osama has access!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="container">
+            <div class="left-section">
+                <div class="logo">
+                    <img src="logo.png" alt="Logo" class="logo-image">
+                </div>
+            </div>
+            <div class="right-section">
+                <h1>Login</h1>
+                <form class="form" onsubmit="validateLogin(event)">
+                    <div class="input-container">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <p><a href="register.html">Don't have an account? Register here</a></p>
+            </div>
+        </div>
+    </div>
 
-
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+    
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            // Retrieve stored credentials
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+    
+            // Check if entered credentials match the admin credentials
+            if (username === "admin" && password === "123") {
+                window.location.href = 'admin-dashboard.html'; // Redirect to admin dashboard
+            }
+            // Check if entered credentials match stored credentials for regular users
+            else if (username === storedUsername && password === storedPassword) {
+                alert("Login successful!");
+                window.location.href = 'home.html'; // Redirect to home page
+            } else {
+                alert("Invalid Username or Password");
+            }
+        }
+    </script>
+    
+</body>
 </html>
