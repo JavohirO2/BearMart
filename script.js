@@ -209,3 +209,4 @@ document.querySelector('#close-cart').addEventListener('click', () => {
 
 // Event listener for the cart icon click
 document.querySelector('.cart').addEventListener('click', openCartModal);
+
