@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mart - Grocery</title>
+    <link rel="stylesheet" href="grocery.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="Mart Logo">
+                <h1>Mart</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="food.html">Food</a></li>
+                    <li><a href="grocery.html">Grocery</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="bathroom.html">Bathroom & Laundry</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search products..." onkeydown="handleEnter(event)" />
+    <button onclick="searchProducts()">Search</button>
+</div>
+            <a href="cart.html">
+            <div class="cart">
+                <!-- Link to cart page -->
+                    <img src="cart-icon.png" alt="Cart Icon">
+                    <span class="cart-count">0</span>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="banner">
+            <img src="banner-image.jpg" alt="Banner Image">
+        </div>
+
+        <div class="content">
+            <h2>Grocery</h2>
+          
+        
+
+
+          
+                <div class="food-items">
+                    <!-- Fruits -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1573246123716-6b1782bfc499" alt="Fresh Apples">
+                        <h3>Organic Apples</h3>
+                        <p>Price: $3.99</p>
+                        <p>Quantity Available: 75</p>
+                        <button onclick="orderNow('Organic Apples', 3.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2024/04/25/06/50/banana-8719086_1280.jpg" alt="Bananas">
+                        <h3>Fair Trade Bananas</h3>
+                        <p>Price: $0.69</p>
+                        <p>Quantity Available: 120</p>
+                        <button onclick="orderNow('Fair Trade Bananas', 0.69)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/10/07/13/36/tangerines-1721590_1280.jpg" alt="Oranges">
+                        <h3>Juicy Oranges</h3>
+                        <p>Price: $2.49</p>
+                        <p>Quantity Available: 90</p>
+                        <button onclick="orderNow('Juicy Oranges', 2.49)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Vegetables -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4" alt="Carrots">
+                        <h3>Organic Carrots</h3>
+                        <p>Price: $1.99</p>
+                        <p>Quantity Available: 60</p>
+                        <button onclick="orderNow('Organic Carrots', 1.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2014/10/22/18/34/broccoli-498600_1280.jpg" alt="Broccoli">
+                        <h3>Fresh Broccoli</h3>
+                        <p>Price: $2.49/head</p>
+                        <p>Quantity Available: 45</p>
+                        <button onclick="orderNow('Fresh Broccoli', 2.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716" alt="Spinach">
+                        <h3>Baby Spinach</h3>
+                        <p>Price: $3.99/bag</p>
+                        <p>Quantity Available: 55</p>
+                        <button onclick="orderNow('Baby Spinach', 3.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Dairy -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150" alt="Milk">
+                        <h3>Organic Whole Milk</h3>
+                        <p>Price: $4.49/gallon</p>
+                        <p>Quantity Available: 40</p>
+                        <button onclick="orderNow('Organic Whole Milk', 4.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2021/06/30/20/31/cheese-6377662_1280.jpg" alt="Cheese">
+                        <h3>Sharp Cheddar</h3>
+                        <p>Price: $5.99</p>
+                        <p>Quantity Available: 30</p>
+                        <button onclick="orderNow('Sharp Cheddar', 5.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2022/07/26/13/55/egg-7345934_1280.jpg" alt="Eggs">
+                        <h3>Free Range Eggs</h3>
+                        <p>Price: $3.99/dozen</p>
+                        <p>Quantity Available: 50</p>
+                        <button onclick="orderNow('Free Range Eggs', 3.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Bakery -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" alt="Bread">
+                        <h3>Whole Grain Bread</h3>
+                        <p>Price: $3.49/loaf</p>
+                        <p>Quantity Available: 35</p>
+                        <button onclick="orderNow('Whole Grain Bread', 3.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2023/08/04/08/35/ai-generated-8168690_1280.jpg" alt="Bagels">
+                        <h3>Everything Bagels</h3>
+                        <p>Price: $4.99/half-dozen</p>
+                        <p>Quantity Available: 25</p>
+                        <button onclick="orderNow('Everything Bagels', 4.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Meat -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2014/03/05/01/20/chicken-breast-279849_1280.jpg" alt="Chicken">
+                        <h3>Organic Chicken Breast</h3>
+                        <p>Price: $8.99</p>
+                        <p>Quantity Available: 30</p>
+                        <button onclick="orderNow('Organic Chicken Breast', 8.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143" alt="Ground Beef">
+                        <h3>Grass-Fed Ground Beef</h3>
+                        <p>Price: $7.49</p>
+                        <p>Quantity Available: 28</p>
+                        <button onclick="orderNow('Grass-Fed Ground Beef', 7.49)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Pantry Staples -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/05/14/18/20/spaghetti-1392266_1280.jpg" alt="Pasta">
+                        <h3>Organic Spaghetti</h3>
+                        <p>Price: $2.99/box</p>
+                        <p>Quantity Available: 65</p>
+                        <button onclick="orderNow('Organic Spaghetti', 2.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2013/03/02/01/25/rice-89014_1280.jpg" alt="Rice">
+                        <h3>Basmati Rice</h3>
+                        <p>Price: $4.99/5lb</p>
+                        <p>Quantity Available: 42</p>
+                        <button onclick="orderNow('Basmati Rice', 4.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2019/08/13/11/37/extra-virgin-olive-oil-4403217_1280.jpg" alt="Olive Oil">
+                        <h3>Extra Virgin Olive Oil</h3>
+                        <p>Price: $9.99/bottle</p>
+                        <p>Quantity Available: 38</p>
+                        <button onclick="orderNow('Extra Virgin Olive Oil', 9.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Snacks -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e" alt="Chips">
+                        <h3>Sea Salt Chips</h3>
+                        <p>Price: $3.49/bag</p>
+                        <p>Quantity Available: 55</p>
+                        <button onclick="orderNow('Sea Salt Chips', 3.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2020/05/02/08/31/almonds-5120350_1280.jpg" alt="Nuts">
+                        <h3>Almonds</h3>
+                        <p>Price: $6.99</p>
+                        <p>Quantity Available: 33</p>
+                        <button onclick="orderNow('Almonds', 6.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Beverages -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/04/12/11/19/coffee-1324126_1280.jpg" alt="Coffee">
+                        <h3>Dark Roast Coffee</h3>
+                        <p>Price: $8.99/12oz</p>
+                        <p>Quantity Available: 27</p>
+                        <button onclick="orderNow('Dark Roast Coffee', 8.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/29/13/07/beverage-1869722_1280.jpg" alt="Tea">
+                        <h3>Green Tea Bags</h3>
+                        <p>Price: $4.99/box</p>
+                        <p>Quantity Available: 48</p>
+                        <button onclick="orderNow('Green Tea Bags', 4.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Frozen -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2017/03/11/20/04/vegetables-2135733_1280.jpg" alt="Frozen Vegetables">
+                        <h3>Mixed Vegetables</h3>
+                        <p>Price: $2.99/bag</p>
+                        <p>Quantity Available: 36</p>
+                        <button onclick="orderNow('Mixed Vegetables', 2.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2014/10/06/15/24/ice-cream-476361_1280.jpg" alt="Ice Cream">
+                        <h3>Vanilla Ice Cream</h3>
+                        <p>Price: $4.99/pint</p>
+                        <p>Quantity Available: 24</p>
+                        <button onclick="orderNow('Vanilla Ice Cream', 4.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- International -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1529563021893-cc83c992d75d" alt="Sushi">
+                        <h3>Sushi Grade Salmon</h3>
+                        <p>Price: $14.99</p>
+                        <p>Quantity Available: 18</p>
+                        <button onclick="orderNow('Sushi Grade Salmon', 14.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1529563021893-cc83c992d75d" alt="Tofu">
+                        <h3>Organic Firm Tofu</h3>
+                        <p>Price: $2.99/block</p>
+                        <p>Quantity Available: 32</p>
+                        <button onclick="orderNow('Organic Firm Tofu', 2.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Organic Produce -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2024/01/09/22/11/avocado-8498520_1280.jpg" alt="Avocados">
+                        <h3>Organic Avocados</h3>
+                        <p>Price: $2.49</p>
+                        <p>Quantity Available: 52</p>
+                        <button onclick="orderNow('Organic Avocados', 2.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2022/05/09/16/34/blueberries-7184897_1280.jpg" alt="Blueberries">
+                        <h3>Organic Blueberries</h3>
+                        <p>Price: $4.99/pint</p>
+                        <p>Quantity Available: 38</p>
+                        <button onclick="orderNow('Organic Blueberries', 4.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Bulk Items -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2021/02/22/09/57/muesli-6039565_1280.jpg" alt="Oats">
+                        <h3>Rolled Oats</h3>
+                        <p>Price: $1.99</p>
+                        <p>Quantity Available: 45</p>
+                        <button onclick="orderNow('Rolled Oats', 1.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2021/06/16/14/31/quinoa-6341427_1280.jpg" alt="Quinoa">
+                        <h3>Organic Quinoa</h3>
+                        <p>Price: $3.99</p>
+                        <p>Quantity Available: 29</p>
+                        <button onclick="orderNow('Organic Quinoa', 3.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Specialty Items -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2015/06/27/16/35/honey-823614_1280.jpg" alt="Honey">
+                        <h3>Local Raw Honey</h3>
+                        <p>Price: $7.99/jar</p>
+                        <p>Quantity Available: 22</p>
+                        <button onclick="orderNow('Local Raw Honey', 7.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2020/07/27/06/06/waffles-5441425_1280.jpg" alt="Maple Syrup">
+                        <h3>Pure Maple Syrup</h3>
+                        <p>Price: $12.99/bottle</p>
+                        <p>Quantity Available: 19</p>
+                        <button onclick="orderNow('Pure Maple Syrup', 12.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Additional Items to Reach 37 -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2024/01/31/17/25/lemon-8544476_1280.jpg" alt="Lemons">
+                        <h3>Organic Lemons</h3>
+                        <p>Price: $0.99</p>
+                        <p>Quantity Available: 68</p>
+                        <button onclick="orderNow('Organic Lemons', 0.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2020/04/22/17/24/strawberry-5079237_1280.jpg" alt="Strawberries">
+                        <h3>Fresh Strawberries</h3>
+                        <p>Price: $3.99</p>
+                        <p>Quantity Available: 42</p>
+                        <button onclick="orderNow('Fresh Strawberries', 3.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716" alt="Kale">
+                        <h3>Organic Kale</h3>
+                        <p>Price: $2.49</p>
+                        <p>Quantity Available: 37</p>
+                        <button onclick="orderNow('Organic Kale', 2.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2019/07/12/02/19/potatoes-4331742_1280.jpg" alt="Potatoes">
+                        <h3>Russet Potatoes</h3>
+                        <p>Price: $0.89</p>
+                        <p>Quantity Available: 85</p>
+                        <button onclick="orderNow('Russet Potatoes', 0.89)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143" alt="Salmon">
+                        <h3>Atlantic Salmon</h3>
+                        <p>Price: $11.99</p>
+                        <p>Quantity Available: 26</p>
+                        <button onclick="orderNow('Atlantic Salmon', 11.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/06/07/17/15/yogurt-1442034_1280.jpg" alt="Greek Yogurt">
+                        <h3>Greek Yogurt</h3>
+                        <p>Price: $3.49</p>
+                        <p>Quantity Available: 33</p>
+                        <button onclick="orderNow('Greek Yogurt', 3.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2012/02/29/12/17/bread-18987_1280.jpg" alt="Croissants">
+                        <h3>Butter Croissants</h3>
+                        <p>Price: $2.99</p>
+                        <p>Quantity Available: 28</p>
+                        <button onclick="orderNow('Butter Croissants', 2.99)">Add to Cart</button>
+                    </div>
+                </div>
+        
+        
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" style="display:none;">
+        <div class="cart-modal-content">
+            <span id="close-cart">&times;</span>
+            <h3>Your Cart</h3>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <button id="checkout">Checkout</button>
+        </div>
+    </div>
+
+   
+
+    <script>
+        // Ensure that the cart script is included to manage the cart
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        
+        // Show the cart modal when cart icon is clicked
+        document.querySelector('.cart').addEventListener('click', () => {
+            cartModal.style.display = 'block';
+            showCart(); // Function defined in scripts.js
+        });
+
+        // Close the cart modal
+        closeCart.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+    </script>
+
+<script src="assets/js/script.js"></script>
+<script src="searchScript.js"></script>
+
+</body>
+</html>
