@@ -1053,7 +1053,7 @@ function displayCart() {
   }
 
   // Fetch cart data from API
-  fetch(`https://mart-kcs9.vercel.app/get-cart/${username}`)
+  fetch(`https://grizzled-chemical-perch.glitch.me/get-cart/${username}`)
     .then(response => {
       if (!response.ok) {
         document.getElementById('total-amount').innerText = '0.00';
@@ -1116,7 +1116,7 @@ function adjustQuantity(index, change) {
   }
 
   // Fetch current cart first
-  fetch(`https://mart-kcs9.vercel.app/get-cart/${username}`)
+  fetch(`https://grizzled-chemical-perch.glitch.me/get-cart/${username}`)
     .then(response => response.json())
     .then(data => {
       const cart = data.cart;
@@ -1135,7 +1135,7 @@ function adjustQuantity(index, change) {
       cart[index].quantity += change;
 
       // Save updated cart
-      return fetch("https://mart-kcs9.vercel.app/save-cart", {
+      return fetch("https://grizzled-chemical-perch.glitch.me/save-cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, cart }),
@@ -1165,7 +1165,7 @@ function removeFromCart(index) {
   if (!confirmation) return;
 
   // Fetch current cart first
-  fetch(`https://mart-kcs9.vercel.app/get-cart/${username}`)
+  fetch(`https://grizzled-chemical-perch.glitch.me/get-cart/${username}`)
     .then(response => response.json())
     .then(data => {
       const cart = data.cart;
@@ -1178,7 +1178,7 @@ function removeFromCart(index) {
       cart.splice(index, 1);
 
       // Save updated cart
-      return fetch("https://mart-kcs9.vercel.app/save-cart", {
+      return fetch("https://grizzled-chemical-perch.glitch.me/save-cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, cart }),
@@ -1219,7 +1219,7 @@ document.getElementById('checkout-button').addEventListener('click', () => {
   const orderMethod = deliveryOption === 'delivery' ? 'Delivery' : 'Pickup';
   const driverId = null; // Can be assigned later if needed
 
-  fetch("https://mart-kcs9.vercel.app/checkout", {
+  fetch("https://grizzled-chemical-perch.glitch.me/checkout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -1277,7 +1277,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const fetchordersbyusername = (username) => {
-  fetch(`https://mart-kcs9.vercel.app/orders/${username}`)
+  fetch(`https://grizzled-chemical-perch.glitch.me/orders/${username}`)
     .then(response => response.json())
     .then(data => {
       if (data.length === 0) {

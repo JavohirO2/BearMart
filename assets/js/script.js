@@ -91,7 +91,7 @@ async function addToCart(itemName, price) {
     updateCartCount();
 
     try {
-        await fetch("https://mart-kcs9.vercel.app/save-cart", {
+        await fetch("https://grizzled-chemical-perch.glitch.me/save-cart", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, cart }),
@@ -201,7 +201,7 @@ async function checkout() {
     const driverId = null;
 
     try {
-        const response = await fetch("https://mart-kcs9.vercel.app/checkout", {
+        const response = await fetch("https://grizzled-chemical-perch.glitch.me/checkout", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, orderMethod, driverId }),
@@ -229,7 +229,7 @@ async function loadCart() {
     if (!username) return;
 
     try {
-        const response = await fetch(`https://mart-kcs9.vercel.app/get-cart/${username}`);
+        const response = await fetch(`https://grizzled-chemical-perch.glitch.me/get-cart/${username}`);
         const data = await response.json();
 
 
