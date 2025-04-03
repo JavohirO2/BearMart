@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Global function for updating order status
     window.updateOrderStatus = function(orderId, newStatus) {
-        fetch(`https://mart-lime.vercel.app/orders/${orderId}/status`, {
+        fetch(`https://mart-kcs9.vercel.app/orders/${orderId}/status`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function fetchOrders() {
         // Fetch the orders data from the API
-        fetch('https://mart-lime.vercel.app/orders')
+        fetch('https://mart-kcs9.vercel.app/orders')
             .then(response => response.json())
             .then(data => {
                 // Clear the loading message
