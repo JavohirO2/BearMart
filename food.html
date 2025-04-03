@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mart - Food</title>
     <link rel="stylesheet" href="food.css">
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
@@ -22,15 +24,20 @@
                     <li><a href="bathroom.html">Bathroom & Laundry</a></li>
                 </ul>
             </nav>
-            <div class="cart">
-                <a href="cart.html"> <!-- Link to cart page -->
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search products..." onkeydown="handleEnter(event)" />
+                <button onclick="searchProducts()">Search</button>
+            </div>
+            <a href="cart.html">
+                <div class="cart">
+                    <!-- Link to cart page -->
                     <img src="cart-icon.png" alt="Cart Icon">
                     <span class="cart-count">0</span>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
     </header>
-    
+
     <!-- Cart Modal -->
     <div id="cart-modal" style="display: none;">
         <div class="cart-modal-content">
@@ -42,6 +49,8 @@
     </div>
 
     <!-- Banner Section -->
+
+   
     <main>
         <div class="banner">
             <img src="banner-image.jpg" alt="Banner Image">
@@ -49,30 +58,30 @@
 
         <!-- Food Category Section -->
         <div class="content">
-            <h2>Food Category</h2>
+            <h2>Food</h2>
             <section class="food-items">
                 <div class="food-item">
                     <img src="images/1.png" alt="Burger">
                     <h3>Burger</h3>
                     <p>Delicious grilled burger with fries.</p>
                     <p>Price: $5.00</p>
-                    <button onclick="orderNow('Burger')">Order Now</button>
+                    <button onclick="orderNow('Burger','5.00')">Order Now</button>
                 </div>
-                
+
                 <div class="food-item">
                     <img src="images/2.jpg" alt="Wrap">
                     <h3>Wrap</h3>
                     <p>Healthy and tasty veggie wrap.</p>
                     <p>Price: $4.50</p>
-                    <button onclick="orderNow('Wrap')">Order Now</button>
+                    <button onclick="orderNow('Wrap','4.50')">Order Now</button>
                 </div>
-                
+
                 <div class="food-item">
                     <img src="images/3.jpg" alt="Sandwich">
                     <h3>Sandwich</h3>
                     <p>Freshly made sandwich with delicious fillings.</p>
                     <p>Price: $6.00</p>
-                    <button onclick="orderNow('Sandwich')">Order Now</button>
+                    <button onclick="orderNow('Sandwich','6.00')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -80,7 +89,7 @@
                     <h3>Meatballs</h3>
                     <p>Savory meatballs in a flavorful sauce.</p>
                     <p>Price: $7.00</p>
-                    <button onclick="orderNow('Meatballs')">Order Now</button>
+                    <button onclick="orderNow('Meatballs','7.00')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -88,7 +97,7 @@
                     <h3>Biryani</h3>
                     <p>Spiced rice with meat and herbs.</p>
                     <p>Price: $8.00</p>
-                    <button onclick="orderNow('Biryani')">Order Now</button>
+                    <button onclick="orderNow('Biryani','8.00')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -96,7 +105,7 @@
                     <h3>Pizza</h3>
                     <p>Hot and cheesy pizza with fresh toppings.</p>
                     <p>Price: $9.00</p>
-                    <button onclick="orderNow('Pizza')">Order Now</button>
+                    <button onclick="orderNow('Pizza','9.00')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -104,7 +113,7 @@
                     <h3>Bread</h3>
                     <p>Freshly baked bread, warm and soft.</p>
                     <p>Price: $2.50</p>
-                    <button onclick="orderNow('Bread')">Order Now</button>
+                    <button onclick="orderNow('Bread','2.50')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -112,7 +121,7 @@
                     <h3>Curry</h3>
                     <p>Spicy curry with tender meat and vegetables.</p>
                     <p>Price: $10.00</p>
-                    <button onclick="orderNow('Curry')">Order Now</button>
+                    <button onclick="orderNow('Curry','10.00')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -120,7 +129,7 @@
                     <h3>Veg Wrap</h3>
                     <p>Vegetarian wrap with fresh ingredients.</p>
                     <p>Price: $4.50</p>
-                    <button onclick="orderNow('Veg Wrap')">Order Now</button>
+                    <button onclick="orderNow('Veg Wrap','4.50')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -128,7 +137,7 @@
                     <h3>Fish Platter</h3>
                     <p>A variety of fish served with sides.</p>
                     <p>Price: $12.00</p>
-                    <button onclick="orderNow('Fish Platter')">Order Now</button>
+                    <button onclick="orderNow('Fish Platter','12.00')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -136,7 +145,7 @@
                     <h3>Paratha</h3>
                     <p>Traditional layered flatbread with butter.</p>
                     <p>Price: $3.50</p>
-                    <button onclick="orderNow('Paratha')">Order Now</button>
+                    <button onclick="orderNow('Paratha','3.50')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -144,7 +153,7 @@
                     <h3>Salad</h3>
                     <p>Fresh and healthy mixed salad.</p>
                     <p>Price: $5.00</p>
-                    <button onclick="orderNow('Salad')">Order Now</button>
+                    <button onclick="orderNow('Salad','5.00')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -152,7 +161,7 @@
                     <h3>Burger Meal</h3>
                     <p>Combo meal with burger, fries, and drink.</p>
                     <p>Price: $10.00</p>
-                    <button onclick="orderNow('Burger Meal')">Order Now</button>
+                    <button onclick="orderNow('Burger Meal','10.00')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -160,7 +169,7 @@
                     <h3>Pasta</h3>
                     <p>Creamy pasta with fresh herbs and spices.</p>
                     <p>Price: $7.50</p>
-                    <button onclick="orderNow('Pasta')">Order Now</button>
+                    <button onclick="orderNow('Pasta','7.50')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -168,7 +177,7 @@
                     <h3>Pizza Slice</h3>
                     <p>A slice of cheesy pizza with herbs.</p>
                     <p>Price: $2.50</p>
-                    <button onclick="orderNow('Pizza Slice')">Order Now</button>
+                    <button onclick="orderNow('Pizza Slice','2.50')">Order Now</button>
                 </div>
 
                 <div class="food-item">
@@ -176,12 +185,190 @@
                     <h3>Dosa</h3>
                     <p>Crispy dosa served with chutney and sambar.</p>
                     <p>Price: $3.00</p>
-                    <button onclick="orderNow('Dosa')">Order Now</button>
+                    <button onclick="orderNow('Dosa','3.00')">Order Now</button>
+                </div>
+
+                <!-- Adding 21 more items to reach 37 total -->
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c" alt="Sushi Roll">
+                    <h3>Sushi Roll</h3>
+                    <p>Fresh sushi roll with avocado and salmon.</p>
+                    <p>Price: $8.50</p>
+                    <button onclick="orderNow('Sushi Roll','8.50')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f" alt="Chicken Wings">
+                    <h3>Chicken Wings</h3>
+                    <p>Spicy buffalo wings with blue cheese dip.</p>
+                    <p>Price: $7.99</p>
+                    <button onclick="orderNow('Chicken Wings','7.99')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/08/02/12/21/nacho-2571340_1280.jpg" alt="Nachos">
+                    <h3>Nachos</h3>
+                    <p>Crispy nachos with cheese, salsa, and guacamole.</p>
+                    <p>Price: $6.50</p>
+                    <button onclick="orderNow('Nachos','6.50')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/29/04/49/blueberries-1867398_1280.jpg"
+                        alt="Pancakes">
+                    <h3>Pancakes</h3>
+                    <p>Stack of fluffy pancakes with maple syrup.</p>
+                    <p>Price: $4.99</p>
+                    <button onclick="orderNow('Pancakes','4.99')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2024/03/20/12/26/fish-and-chips-8645438_1280.jpg"
+                        alt="Fish and Chips">
+                    <h3>Fish and Chips</h3>
+                    <p>Golden fried fish with crispy chips and tartar sauce.</p>
+                    <p>Price: $9.50</p>
+                    <button onclick="orderNow('Fish and Chips','9.50')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143" alt="Steak">
+                    <h3>Steak</h3>
+                    <p>Juicy grilled steak with herb butter.</p>
+                    <p>Price: $15.99</p>
+                    <button onclick="orderNow('Steak','15.99')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1611270629569-8b357cb88da9" alt="Ramen">
+                    <h3>Ramen</h3>
+                    <p>Savory ramen noodles in rich broth with toppings.</p>
+                    <p>Price: $8.99</p>
+                    <button onclick="orderNow('Ramen','8.99')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1" alt="Caesar Salad">
+                    <h3>Caesar Salad</h3>
+                    <p>Classic Caesar salad with croutons and parmesan.</p>
+                    <p>Price: $6.50</p>
+                    <button onclick="orderNow('Caesar Salad','6.50')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2018/09/11/16/16/food-3669928_1280.jpg" alt="Onion Rings">
+                    <h3>Onion Rings</h3>
+                    <p>Crispy battered onion rings with dipping sauce.</p>
+                    <p>Price: $3.99</p>
+                    <button onclick="orderNow('Onion Rings','3.99')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21" alt="Ice Cream">
+                    <h3>Ice Cream</h3>
+                    <p>Creamy vanilla ice cream with chocolate sauce.</p>
+                    <p>Price: $3.50</p>
+                    <button onclick="orderNow('Ice Cream','3.50')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" alt="Chocolate Cake">
+                    <h3>Chocolate Cake</h3>
+                    <p>Rich chocolate cake with frosting.</p>
+                    <p>Price: $4.50</p>
+                    <button onclick="orderNow('Chocolate Cake','4.50')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2022/04/25/06/10/pakistani-plain-naan-7155154_1280.jpg"
+                        alt="Naan Bread">
+                    <h3>Naan Bread</h3>
+                    <p>Soft, fluffy naan bread with garlic butter.</p>
+                    <p>Price: $2.00</p>
+                    <button onclick="orderNow('Naan Bread','2.00')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2019/10/12/15/39/falafel-4544137_1280.jpg" alt="Falafel">
+                    <h3>Falafel</h3>
+                    <p>Crispy chickpea patties with tahini sauce.</p>
+                    <p>Price: $5.50</p>
+                    <button onclick="orderNow('Falafel','5.50')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99" alt="Pad Thai">
+                    <h3>Pad Thai</h3>
+                    <p>Stir-fried rice noodles with peanuts and lime.</p>
+                    <p>Price: $9.99</p>
+                    <button onclick="orderNow('Pad Thai','9.99')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2021/02/06/11/51/food-5987888_1280.jpg" alt="Lasagna">
+                    <h3>Lasagna</h3>
+                    <p>Layered pasta with rich meat sauce and cheese.</p>
+                    <p>Price: $8.50</p>
+                    <button onclick="orderNow('Lasagna','8.50')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" alt="Samosa">
+                    <h3>Samosa</h3>
+                    <p>Crispy pastry filled with spiced potatoes and peas.</p>
+                    <p>Price: $1.99</p>
+                    <button onclick="orderNow('Samosa','1.99')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51" alt="Tiramisu">
+                    <h3>Tiramisu</h3>
+                    <p>Classic Italian dessert with coffee and mascarpone.</p>
+                    <p>Price: $5.99</p>
+                    <button onclick="orderNow('Tiramisu','5.99')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/02/01/16/37/chicken-2030706_1280.jpg"
+                        alt="Chicken Soup">
+                    <h3>Chicken Soup</h3>
+                    <p>Hearty chicken soup with vegetables and herbs.</p>
+                    <p>Price: $4.99</p>
+                    <button onclick="orderNow('Chicken Soup','4.99')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246" alt="Spring Rolls">
+                    <h3>Spring Rolls</h3>
+                    <p>Crispy spring rolls with sweet chili sauce.</p>
+                    <p>Price: $3.99</p>
+                    <button onclick="orderNow('Spring Rolls','3.99')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1578775887804-699de7086ff9" alt="Cheesecake">
+                    <h3>Cheesecake</h3>
+                    <p>Creamy New York-style cheesecake with berry topping.</p>
+                    <p>Price: $5.50</p>
+                    <button onclick="orderNow('Cheesecake','5.50')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2023/10/18/08/38/milkshake-8323288_1280.jpg"
+                        alt="Milkshake">
+                    <h3>Milkshake</h3>
+                    <p>Thick and creamy milkshake with whipped cream.</p>
+                    <p>Price: $4.50</p>
+                    <button onclick="orderNow('Milkshake','4.50')">Order Now</button>
                 </div>
             </section>
         </div>
     </main>
 
-   
+    <script src="assets/js/script.js"></script>
+    <script src="searchScript.js"></script>
+
+
 </body>
+
 </html>

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
     <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="progress.css">
+
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
@@ -27,6 +31,7 @@
         <h1>Your Cart</h1>
         <div id="cart-items">
             <!-- Cart items will be displayed here -->
+            <p>Loading cart items...</p>
         </div>
 
         <div id="cart-summary">
@@ -45,6 +50,10 @@
             <button id="checkout-button">Proceed to Checkout</button>
         </div>
 
+
+
+        <h1 class="or"> Your Orders
+        </h1>
         <!-- Order Status Section -->
         <div class="order-status">
             <h2>Order Status</h2>
@@ -52,108 +61,13 @@
         </div>
     </main>
 
-    <script>
-        // Simulated cart data (would typically come from localStorage or API)
-        const cart = JSON.parse(localStorage.getItem("cart")) || [
-            { name: "Burger", quantity: 2, price: 5 },
-            { name: "Fries", quantity: 1, price: 2.5 }
-        ];
+    <script src="assets/js/script.js"></script>
 
-        function displayCart() {
-            const cartItemsContainer = document.getElementById('cart-items');
-            cartItemsContainer.innerHTML = ''; // Clear previous content
+    <script src="assets/cartScript.js"></script>
 
-            let totalAmount = 0;
+    
 
-            cart.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.classList.add('cart-item');
-                itemElement.innerHTML = `
-                    <span>${item.name} (x${item.quantity})</span>
-                    <span class="price">$${(item.price * item.quantity).toFixed(2)}</span>
-                `;
-                cartItemsContainer.appendChild(itemElement);
-                totalAmount += item.price * item.quantity;
-            });
 
-            document.getElementById('total-amount').innerText = totalAmount.toFixed(2);
-        }
-
-        // Handle delivery option change
-        document.getElementById('delivery-option').addEventListener('change', (event) => {
-            const deliveryAddressDiv = document.getElementById('delivery-address');
-            if (event.target.value === "delivery") {
-                deliveryAddressDiv.style.display = 'block';
-            } else {
-                deliveryAddressDiv.style.display = 'none';
-            }
-        });
-
-        // Order status options
-        const orderStatuses = [
-            "Process", 
-            "Being Delivered", 
-            "Delivered", 
-            "Dropped Off", 
-            "Order Ready", 
-            "Ready to be Picked Up"
-        ];
-
-        // Function to update the order status dynamically
-        function updateOrderStatus() {
-            let currentStatusIndex = parseInt(localStorage.getItem("orderStatusIndex")) || 0;
-            let statusText = document.getElementById("status-text");
-
-            if (currentStatusIndex < orderStatuses.length) {
-                statusText.textContent = orderStatuses[currentStatusIndex];
-            } else {
-                statusText.textContent = "Completed";
-            }
-        }
-
-        // Simulate status updates every 5 seconds
-        function simulateOrderProgress() {
-            let currentStatusIndex = parseInt(localStorage.getItem("orderStatusIndex")) || 0;
-
-            if (currentStatusIndex < orderStatuses.length - 1) {
-                currentStatusIndex++;
-                localStorage.setItem("orderStatusIndex", currentStatusIndex);
-                updateOrderStatus();
-            }
-        }
-
-        // Checkout button logic
-        document.getElementById('checkout-button').addEventListener('click', () => {
-            const deliveryOption = document.getElementById('delivery-option').value;
-            let address = '';
-
-            if (deliveryOption === 'delivery') {
-                address = document.getElementById('address').value;
-                if (!address) {
-                    alert("Please provide a delivery address.");
-                    return;
-                }
-            }
-
-            // Proceed with checkout (store the order details)
-            alert(`Checkout successful! Your order will be delivered to: ${address || 'Package'}`);
-
-            // Reset order status index
-            localStorage.setItem("orderStatusIndex", 0);
-            updateOrderStatus();
-
-            // Start status updates every 5 seconds
-            setInterval(simulateOrderProgress, 5000);
-
-            // Clear cart data
-            localStorage.removeItem('cart');
-        });
-
-        // Display the cart and order status when the page loads
-        window.onload = () => {
-            displayCart();
-            updateOrderStatus();
-        };
-    </script>
 </body>
+
 </html>

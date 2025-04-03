@@ -14,7 +14,7 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #e74c3c; /* Red theme */
+    background-color: #D50032; /* Red theme */
     padding: 15px 20px;
     color: white;
 }
@@ -179,4 +179,28 @@ nav ul li a {
 
 .book-item button:hover {
     background-color: #c0392b; /* Darker red on hover */
+}
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: none;
+    outline: none;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 8px 15px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
 }

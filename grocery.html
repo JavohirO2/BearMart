@@ -22,12 +22,17 @@
                     <li><a href="bathroom.html">Bathroom & Laundry</a></li>
                 </ul>
             </nav>
+            <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search products..." onkeydown="handleEnter(event)" />
+    <button onclick="searchProducts()">Search</button>
+</div>
+            <a href="cart.html">
             <div class="cart">
-                <a href="cart.html"> <!-- Link to cart page -->
+                <!-- Link to cart page -->
                     <img src="cart-icon.png" alt="Cart Icon">
                     <span class="cart-count">0</span>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
     </header>
 
@@ -37,44 +42,325 @@
         </div>
 
         <div class="content">
-            <h2>Grocery Category</h2>
-            <div class="food-items">
-                <div class="food-item">
-                    <img src="https://res.cloudinary.com/hellofresh/image/upload/dpr_auto,f_auto,fl_lossy,q_80,w_640/v1/hellofresh_s3/image/5554305d4dab7106578b456e.png" alt="Fresh Groceries">
-                    <h3>Sahaya</h3>
-                    <p>Price: $15</p>
-                    <p>Quantity Available: 50</p>
-                    <button onclick="orderNow('Fresh Groceries')">Add to Cart</button>
+            <h2>Grocery</h2>
+          
+        
+
+
+          
+                <div class="food-items">
+                    <!-- Fruits -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1573246123716-6b1782bfc499" alt="Fresh Apples">
+                        <h3>Organic Apples</h3>
+                        <p>Price: $3.99</p>
+                        <p>Quantity Available: 75</p>
+                        <button onclick="orderNow('Organic Apples', 3.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2024/04/25/06/50/banana-8719086_1280.jpg" alt="Bananas">
+                        <h3>Fair Trade Bananas</h3>
+                        <p>Price: $0.69</p>
+                        <p>Quantity Available: 120</p>
+                        <button onclick="orderNow('Fair Trade Bananas', 0.69)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/10/07/13/36/tangerines-1721590_1280.jpg" alt="Oranges">
+                        <h3>Juicy Oranges</h3>
+                        <p>Price: $2.49</p>
+                        <p>Quantity Available: 90</p>
+                        <button onclick="orderNow('Juicy Oranges', 2.49)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Vegetables -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4" alt="Carrots">
+                        <h3>Organic Carrots</h3>
+                        <p>Price: $1.99</p>
+                        <p>Quantity Available: 60</p>
+                        <button onclick="orderNow('Organic Carrots', 1.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2014/10/22/18/34/broccoli-498600_1280.jpg" alt="Broccoli">
+                        <h3>Fresh Broccoli</h3>
+                        <p>Price: $2.49/head</p>
+                        <p>Quantity Available: 45</p>
+                        <button onclick="orderNow('Fresh Broccoli', 2.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716" alt="Spinach">
+                        <h3>Baby Spinach</h3>
+                        <p>Price: $3.99/bag</p>
+                        <p>Quantity Available: 55</p>
+                        <button onclick="orderNow('Baby Spinach', 3.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Dairy -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150" alt="Milk">
+                        <h3>Organic Whole Milk</h3>
+                        <p>Price: $4.49/gallon</p>
+                        <p>Quantity Available: 40</p>
+                        <button onclick="orderNow('Organic Whole Milk', 4.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2021/06/30/20/31/cheese-6377662_1280.jpg" alt="Cheese">
+                        <h3>Sharp Cheddar</h3>
+                        <p>Price: $5.99</p>
+                        <p>Quantity Available: 30</p>
+                        <button onclick="orderNow('Sharp Cheddar', 5.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2022/07/26/13/55/egg-7345934_1280.jpg" alt="Eggs">
+                        <h3>Free Range Eggs</h3>
+                        <p>Price: $3.99/dozen</p>
+                        <p>Quantity Available: 50</p>
+                        <button onclick="orderNow('Free Range Eggs', 3.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Bakery -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" alt="Bread">
+                        <h3>Whole Grain Bread</h3>
+                        <p>Price: $3.49/loaf</p>
+                        <p>Quantity Available: 35</p>
+                        <button onclick="orderNow('Whole Grain Bread', 3.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2023/08/04/08/35/ai-generated-8168690_1280.jpg" alt="Bagels">
+                        <h3>Everything Bagels</h3>
+                        <p>Price: $4.99/half-dozen</p>
+                        <p>Quantity Available: 25</p>
+                        <button onclick="orderNow('Everything Bagels', 4.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Meat -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2014/03/05/01/20/chicken-breast-279849_1280.jpg" alt="Chicken">
+                        <h3>Organic Chicken Breast</h3>
+                        <p>Price: $8.99</p>
+                        <p>Quantity Available: 30</p>
+                        <button onclick="orderNow('Organic Chicken Breast', 8.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143" alt="Ground Beef">
+                        <h3>Grass-Fed Ground Beef</h3>
+                        <p>Price: $7.49</p>
+                        <p>Quantity Available: 28</p>
+                        <button onclick="orderNow('Grass-Fed Ground Beef', 7.49)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Pantry Staples -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/05/14/18/20/spaghetti-1392266_1280.jpg" alt="Pasta">
+                        <h3>Organic Spaghetti</h3>
+                        <p>Price: $2.99/box</p>
+                        <p>Quantity Available: 65</p>
+                        <button onclick="orderNow('Organic Spaghetti', 2.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2013/03/02/01/25/rice-89014_1280.jpg" alt="Rice">
+                        <h3>Basmati Rice</h3>
+                        <p>Price: $4.99/5lb</p>
+                        <p>Quantity Available: 42</p>
+                        <button onclick="orderNow('Basmati Rice', 4.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2019/08/13/11/37/extra-virgin-olive-oil-4403217_1280.jpg" alt="Olive Oil">
+                        <h3>Extra Virgin Olive Oil</h3>
+                        <p>Price: $9.99/bottle</p>
+                        <p>Quantity Available: 38</p>
+                        <button onclick="orderNow('Extra Virgin Olive Oil', 9.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Snacks -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e" alt="Chips">
+                        <h3>Sea Salt Chips</h3>
+                        <p>Price: $3.49/bag</p>
+                        <p>Quantity Available: 55</p>
+                        <button onclick="orderNow('Sea Salt Chips', 3.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2020/05/02/08/31/almonds-5120350_1280.jpg" alt="Nuts">
+                        <h3>Almonds</h3>
+                        <p>Price: $6.99</p>
+                        <p>Quantity Available: 33</p>
+                        <button onclick="orderNow('Almonds', 6.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Beverages -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/04/12/11/19/coffee-1324126_1280.jpg" alt="Coffee">
+                        <h3>Dark Roast Coffee</h3>
+                        <p>Price: $8.99/12oz</p>
+                        <p>Quantity Available: 27</p>
+                        <button onclick="orderNow('Dark Roast Coffee', 8.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/29/13/07/beverage-1869722_1280.jpg" alt="Tea">
+                        <h3>Green Tea Bags</h3>
+                        <p>Price: $4.99/box</p>
+                        <p>Quantity Available: 48</p>
+                        <button onclick="orderNow('Green Tea Bags', 4.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Frozen -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2017/03/11/20/04/vegetables-2135733_1280.jpg" alt="Frozen Vegetables">
+                        <h3>Mixed Vegetables</h3>
+                        <p>Price: $2.99/bag</p>
+                        <p>Quantity Available: 36</p>
+                        <button onclick="orderNow('Mixed Vegetables', 2.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2014/10/06/15/24/ice-cream-476361_1280.jpg" alt="Ice Cream">
+                        <h3>Vanilla Ice Cream</h3>
+                        <p>Price: $4.99/pint</p>
+                        <p>Quantity Available: 24</p>
+                        <button onclick="orderNow('Vanilla Ice Cream', 4.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- International -->
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1529563021893-cc83c992d75d" alt="Sushi">
+                        <h3>Sushi Grade Salmon</h3>
+                        <p>Price: $14.99</p>
+                        <p>Quantity Available: 18</p>
+                        <button onclick="orderNow('Sushi Grade Salmon', 14.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1529563021893-cc83c992d75d" alt="Tofu">
+                        <h3>Organic Firm Tofu</h3>
+                        <p>Price: $2.99/block</p>
+                        <p>Quantity Available: 32</p>
+                        <button onclick="orderNow('Organic Firm Tofu', 2.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Organic Produce -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2024/01/09/22/11/avocado-8498520_1280.jpg" alt="Avocados">
+                        <h3>Organic Avocados</h3>
+                        <p>Price: $2.49</p>
+                        <p>Quantity Available: 52</p>
+                        <button onclick="orderNow('Organic Avocados', 2.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2022/05/09/16/34/blueberries-7184897_1280.jpg" alt="Blueberries">
+                        <h3>Organic Blueberries</h3>
+                        <p>Price: $4.99/pint</p>
+                        <p>Quantity Available: 38</p>
+                        <button onclick="orderNow('Organic Blueberries', 4.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Bulk Items -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2021/02/22/09/57/muesli-6039565_1280.jpg" alt="Oats">
+                        <h3>Rolled Oats</h3>
+                        <p>Price: $1.99</p>
+                        <p>Quantity Available: 45</p>
+                        <button onclick="orderNow('Rolled Oats', 1.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2021/06/16/14/31/quinoa-6341427_1280.jpg" alt="Quinoa">
+                        <h3>Organic Quinoa</h3>
+                        <p>Price: $3.99</p>
+                        <p>Quantity Available: 29</p>
+                        <button onclick="orderNow('Organic Quinoa', 3.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Specialty Items -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2015/06/27/16/35/honey-823614_1280.jpg" alt="Honey">
+                        <h3>Local Raw Honey</h3>
+                        <p>Price: $7.99/jar</p>
+                        <p>Quantity Available: 22</p>
+                        <button onclick="orderNow('Local Raw Honey', 7.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2020/07/27/06/06/waffles-5441425_1280.jpg" alt="Maple Syrup">
+                        <h3>Pure Maple Syrup</h3>
+                        <p>Price: $12.99/bottle</p>
+                        <p>Quantity Available: 19</p>
+                        <button onclick="orderNow('Pure Maple Syrup', 12.99)">Add to Cart</button>
+                    </div>
+                    
+                    <!-- Additional Items to Reach 37 -->
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2024/01/31/17/25/lemon-8544476_1280.jpg" alt="Lemons">
+                        <h3>Organic Lemons</h3>
+                        <p>Price: $0.99</p>
+                        <p>Quantity Available: 68</p>
+                        <button onclick="orderNow('Organic Lemons', 0.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2020/04/22/17/24/strawberry-5079237_1280.jpg" alt="Strawberries">
+                        <h3>Fresh Strawberries</h3>
+                        <p>Price: $3.99</p>
+                        <p>Quantity Available: 42</p>
+                        <button onclick="orderNow('Fresh Strawberries', 3.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716" alt="Kale">
+                        <h3>Organic Kale</h3>
+                        <p>Price: $2.49</p>
+                        <p>Quantity Available: 37</p>
+                        <button onclick="orderNow('Organic Kale', 2.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2019/07/12/02/19/potatoes-4331742_1280.jpg" alt="Potatoes">
+                        <h3>Russet Potatoes</h3>
+                        <p>Price: $0.89</p>
+                        <p>Quantity Available: 85</p>
+                        <button onclick="orderNow('Russet Potatoes', 0.89)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143" alt="Salmon">
+                        <h3>Atlantic Salmon</h3>
+                        <p>Price: $11.99</p>
+                        <p>Quantity Available: 26</p>
+                        <button onclick="orderNow('Atlantic Salmon', 11.99)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2016/06/07/17/15/yogurt-1442034_1280.jpg" alt="Greek Yogurt">
+                        <h3>Greek Yogurt</h3>
+                        <p>Price: $3.49</p>
+                        <p>Quantity Available: 33</p>
+                        <button onclick="orderNow('Greek Yogurt', 3.49)">Add to Cart</button>
+                    </div>
+                    
+                    <div class="food-item">
+                        <img src="https://cdn.pixabay.com/photo/2012/02/29/12/17/bread-18987_1280.jpg" alt="Croissants">
+                        <h3>Butter Croissants</h3>
+                        <p>Price: $2.99</p>
+                        <p>Quantity Available: 28</p>
+                        <button onclick="orderNow('Butter Croissants', 2.99)">Add to Cart</button>
+                    </div>
                 </div>
-                <div class="food-item">
-                    <img src="http://primer.com.ph/tips-guides/wp-content/uploads/sites/5/2017/07/ampalaya.jpg" alt="Ampalaya">
-                    <h3>Nirvana</h3>
-                    <p>Price: $9</p>
-                    <p>Quantity Available: 60</p>
-                    <button onclick="orderNow('Ampalaya')">Add to Cart</button>
-                </div>
-                <div class="food-item">
-                    <img src="https://sciencebob.com/wp-content/uploads/2015/04/tomato_small.png" alt="Tomato">
-                    <h3>Kiryana</h3>
-                    <p>Price: $5</p>
-                    <p>Quantity Available: 100</p>
-                    <button onclick="orderNow('Tomato')">Add to Cart</button>
-                </div>
-                <div class="food-item">
-                    <img src="data:image/jpeg;base64,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" alt="Vegetables">
-                    <h3>Sahaya</h3>
-                    <p>Price: $5</p>
-                    <p>Quantity Available: 120</p>
-                    <button onclick="orderNow('Vegetables')">Add to Cart</button>
-                </div>
-                <div class="food-item">
-                    <img src="data:image/jpeg;base64,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" alt="Potato">
-                    <h3>Kirwana</h3>
-                    <p>Price: $4</p>
-                    <p>Quantity Available: 115</p>
-                    <button onclick="orderNow('Potato')">Add to Cart</button>
-                </div>
-            </div>
+        
+        
         </div>
     </main>
 
@@ -108,5 +394,9 @@
             cartModal.style.display = 'none';
         });
     </script>
+
+<script src="assets/js/script.js"></script>
+<script src="searchScript.js"></script>
+
 </body>
 </html>

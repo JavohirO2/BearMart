@@ -10,10 +10,27 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
+.cart {
+    display: flex;
+    align-items: center;
+}
 
+
+.cart img {
+    width: 30px;
+    margin-right: 5px;
+}
+
+.cart-count {
+    font-size: 1em;
+    background-color: #c0392b; /* Darker red */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
 /* Header Section */
 header {
-    background-color: #d50032; /* Red background for header */
+    background-color: #D50032; /* Red background for header */
     padding: 10px 0;
     color: white;
     margin-bottom: 0; /* Removes margin between header and the next element */
@@ -142,4 +159,103 @@ nav ul li a:hover {
     .cart img {
         width: 25px; /* Smaller cart icon for mobile */
     }
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Adds spacing between images */
+    max-width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+.container img {
+    max-width: 48%; /* Ensures images are responsive */
+    height:250px ;
+    border-radius: 10px; /* Adds rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds shadow effect */
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container img {
+        max-width: 100%;
+    }
+}
+
+/* .food-items1 {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+} */
+
+.main-top{
+    margin: 10px 10px;
+}
+
+.h2 {
+    margin: 20px;
+    color: #e74c3c; /* Red theme */
+}
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: none;
+    outline: none;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 8px 15px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ 
+}
+
+
+button {
+    padding: 8px 16px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff6600; /* Orange color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #cc5500; /* Darker orange */
 }

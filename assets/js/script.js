@@ -32,10 +32,10 @@ const prices = {
     "Book Title 5": 14.99,
 
     "Luxury Bath Towel": 12.99,
-     "Woven Laundry Basket" : 19.99,
-     "Herbal Shampoo" : 8.50,
-     "Liquid Detergent": 6.75,
-     "Soft Bath Mat":10.99,
+    "Woven Laundry Basket": 19.99,
+    "Herbal Shampoo": 8.50,
+    "Liquid Detergent": 6.75,
+    "Soft Bath Mat": 10.99,
 
 };
 
@@ -64,25 +64,43 @@ function showCategory(category) {
 }
 
 // Function to handle "Order Now" button clicks
-function orderNow(itemName) {
-    addToCart(itemName);
+function orderNow(itemName, price) {
+    addToCart(itemName, price);
     alert(`Thank you for ordering ${itemName}! It has been added to your cart.`);
     console.log(`Order placed for: ${itemName}`);
 }
 
-// Function to add item to the cart
-function addToCart(itemName) {
-    const itemIndex = cart.findIndex(item => item.name === itemName);
-    
+
+
+
+async function addToCart(itemName, price) {
+    const username = localStorage.getItem("username");
+    if (!username) {
+        alert("Please log in to add items to the cart.");
+        return;
+    }
+
+    const itemIndex = cart.findIndex((item) => item.name === itemName);
+
     if (itemIndex === -1) {
-        cart.push({ name: itemName, quantity: 1 });
+        cart.push({ name: itemName, quantity: 1, price });
     } else {
         cart[itemIndex].quantity++;
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
     updateCartCount();
+
+    try {
+        await fetch("http://localhost:5000/save-cart", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, cart }),
+        });
+    } catch (error) {
+        console.error("Error saving cart:", error);
+    }
 }
+
 
 // Function to update the cart count displayed on the cart icon
 function updateCartCount() {
@@ -90,63 +108,7 @@ function updateCartCount() {
     document.querySelector('.cart-count').textContent = cartCount;
 }
 
-// Function to show cart items in a modal
-function showCart() {
-    const cartItemsContainer = document.querySelector('#cart-items');
-    cartItemsContainer.innerHTML = ''; // Clear previous items
 
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
-        document.querySelector('#checkout').style.display = 'none';
-        return;
-    }
-
-    let totalAmount = 0; // To calculate the total cost
-
-    cart.forEach((item, index) => {
-        const itemPrice = prices[item.name] || 0;
-        totalAmount += itemPrice * item.quantity; // Update total amount
-
-        const itemElement = document.createElement('div');
-        itemElement.classList.add('cart-item');
-        itemElement.innerHTML = `
-            <span>${item.name} (x${item.quantity}) - $${(itemPrice * item.quantity).toFixed(2)}</span>
-            <button onclick="removeFromCart(${index})">Remove</button>
-            <button onclick="adjustQuantity(${index}, 1)">+</button>
-            <button onclick="adjustQuantity(${index}, -1)">-</button>
-        `;
-        cartItemsContainer.appendChild(itemElement);
-    });
-
-    // Show total amount
-    const totalElement = document.createElement('div');
-    totalElement.classList.add('cart-total');
-    totalElement.innerHTML = `<strong>Total: $${totalAmount.toFixed(2)}</strong>`;
-    cartItemsContainer.appendChild(totalElement);
-
-    const deliveryOptionElement = document.createElement('div');
-    deliveryOptionElement.classList.add('delivery-options');
-    deliveryOptionElement.innerHTML = `
-        <h3>Select Delivery Option:</h3>
-        <label>
-            <input type="radio" name="delivery-option" value="Package" checked>
-            Package
-        </label>
-        <label>
-            <input type="radio" name="delivery-option" value="Delivery" onclick="promptForGlobalAddress()">
-            Delivery
-        </label>
-    `;
-    cartItemsContainer.appendChild(deliveryOptionElement);
-
-    // Show the checkout button
-    document.querySelector('#checkout').style.display = 'block';
-
-
-
-    // Show the checkout button
-    document.querySelector('#checkout').style.display = 'block';
-}
 
 // Function to prompt for address if Delivery is selected
 let globalDeliveryAddress = ''; // Store the global delivery address
@@ -170,7 +132,8 @@ function adjustQuantity(index, change) {
     } else {
         cart[index].quantity += change;
         localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
-        showCart(); // Refresh the cart display
+        // showCart(); // Refresh the cart display
+        displayCart();
         updateCartCount();
     }
 }
@@ -181,58 +144,108 @@ function removeFromCart(index) {
     if (confirmation) {
         cart.splice(index, 1); // Remove the item from the cart array
         localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
-        showCart(); // Refresh the cart display
+        // showCart(); // Refresh the cart display
+        displayCart();
         updateCartCount();
     }
 }
 
-// Function to handle checkout and show final bill slip
-function checkout() {
-    if (cart.length === 0) {
-        alert('Your cart is empty.');
-        return;
-    }
 
-    // Determine global delivery option
-    const deliveryOption = globalDeliveryAddress ? 'Delivery' : 'Package';
-
-    let orderSummary = `Your Order (${deliveryOption}`;
-    if (globalDeliveryAddress) {
-        orderSummary += `, Address: ${globalDeliveryAddress}`;
-    }
-    orderSummary += `):\n`;
+function displayCart() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.innerHTML = ''; // Clear previous content
 
     let totalAmount = 0;
 
-    cart.forEach(item => {
-        const itemPrice = prices[item.name] || 0;
-        const itemTotal = (itemPrice * item.quantity).toFixed(2);
-        totalAmount += parseFloat(itemTotal);
+    cart?.forEach((item, index) => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('cart-item');
+        itemElement.innerHTML = `
+    <span>${item.name} (x${item.quantity})</span>
+    <span class="price">$${(item.price * item.quantity).toFixed(2)}</span>
 
-        orderSummary += `${item.name} (x${item.quantity}) - $${itemTotal}\n`;
+    <div>
+        <button onclick="removeFromCart(${index})">Delete</button>
+    <button onclick="adjustQuantity(${index}, 1)">+</button>
+    <button onclick="adjustQuantity(${index}, -1)">-</button>
+    
+    </div>
+
+`;
+
+        cartItemsContainer.appendChild(itemElement);
+        totalAmount += item.price * item.quantity;
     });
 
-    orderSummary += `\nTotal: $${totalAmount.toFixed(2)}`;
-
-    // Display final bill slip
-    alert(orderSummary + '\nThank you for your order!');
-    cart = []; // Clear the cart after checkout
-    globalDeliveryAddress = ''; // Reset global delivery address
-    localStorage.removeItem('cart'); // Clear saved cart
-    showCart(); // Refresh the cart display
-    updateCartCount();
+    document.getElementById('total-amount').innerText = totalAmount.toFixed(2);
 }
 
-// Open the cart modal and show items in the center of the screen
-function openCartModal() {
-    document.querySelector('#cart-modal').style.display = 'flex'; // Set display to flex for centering
-    showCart();
+
+
+
+
+
+async function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    const username = localStorage.getItem("username");
+    if (!username) {
+        alert("Please log in to place an order.");
+        return;
+    }
+
+    const orderMethod = globalDeliveryAddress ? "Delivery" : "Pickup";
+    const driverId = null;
+
+    try {
+        const response = await fetch("http://localhost:5000/checkout", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, orderMethod, driverId }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert(`Order placed successfully! Order ID: ${data.orderId}`);
+            cart = [];
+            localStorage.removeItem("cart");
+            updateCartCount();
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Something went wrong. Please try again.");
+    }
 }
 
-// Close the cart modal
-document.querySelector('#close-cart').addEventListener('click', () => {
-    document.querySelector('#cart-modal').style.display = 'none';
-});
 
-// Event listener for the cart icon click
-document.querySelector('.cart').addEventListener('click', openCartModal);
+
+async function loadCart() {
+    const username = localStorage.getItem("username");
+    if (!username) return;
+
+    try {
+        const response = await fetch(`http://localhost:5000/get-cart/${username}`);
+        const data = await response.json();
+
+
+        console.log(data, "data")
+
+
+        if (response.ok) {
+            cart = data.cart;
+            updateCartCount();
+        }
+    } catch (error) {
+        console.error("Error loading cart:", error);
+    }
+}
+
+
+window.onload = loadCart;
+
+

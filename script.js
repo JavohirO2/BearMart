@@ -60,11 +60,11 @@ function orderNow(itemName) {
 function addToCart(itemName) {
     const itemIndex = cart.findIndex(item => item.name === itemName);
     
-    if (itemIndex === -1) {
-        cart.push({ name: itemName, quantity: 1 });
-    } else {
-        cart[itemIndex].quantity++;
-    }
+    // if (itemIndex === -1) {
+    //     cart.push({ name: itemName, quantity: 1 });
+    // } else {
+    //     cart[itemIndex].quantity++;
+    // }
 
     localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
     updateCartCount();
