@@ -1290,29 +1290,27 @@ const fetchordersbyusername = (username) => {
       orderStatusContainer.innerHTML = ""; // Clear previous orders
 
       data.forEach(order => {
-        // Create the order element
+        // Calculate the total (for display purposes)
+        const orderTotal = parseFloat(order.OrderTotal) || // Convert string to number, fallback to cart data calculation
+          (order.cart_data ? order.cart_data.reduce((sum, item) => sum + (parseFloat(item.price) * item.quantity), 0) : 0);
+
+        // Order header information
         const orderElement = document.createElement('div');
         orderElement.classList.add('order');
-
-        // Calculate the total (for display purposes)
-        const orderTotal = order.OrderTotal ||
-          (order.cart_data ? order.cart_data.reduce((sum, item) => sum + (item.price * item.quantity), 0) : 0);
-
         
-        // Order header information
         orderElement.innerHTML = `
-                  <div class="order-header">
-                      <p class="order-id"><strong>Order ID:</strong> ${order.OrderID}</p>
-                      <p><strong>Total:</strong> $${orderTotal.toFixed(2)}</p>
-                  </div>
-                  <p class="delivery-address"><strong>Delivery Address:</strong> ${order.Address || 'Not provided'}</p>
-                  <p><strong>ITEMS</strong></p>
-                  <ul>
-                      ${order.cart_data
-            .map(item => `<li>${item.name} <span>x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}</span></li>`)
-            .join("")}
-                  </ul>
-              `;
+          <div class="order-header">
+              <p class="order-id"><strong>Order ID:</strong> ${order.OrderID}</p>
+              <p><strong>Total:</strong> $${orderTotal.toFixed(2)}</p>
+          </div>
+          <p class="delivery-address"><strong>Delivery Address:</strong> ${order.Address || 'Not provided'}</p>
+          <p><strong>ITEMS</strong></p>
+          <ul>
+              ${order.cart_data
+                  .map(item => `<li>${item.name} <span>x${item.quantity} - $${(parseFloat(item.price) * item.quantity).toFixed(2)}</span></li>`)
+                  .join("")}
+          </ul>
+        `;
 
         // Create and append the status tracker
         const statusTracker = createOrderStatusTracker(order);
@@ -1332,6 +1330,7 @@ const fetchordersbyusername = (username) => {
         `<span class="status-indicator status-error">Error fetching orders.</span>`;
     });
 };
+
 
 // Status tracker functions from admin panel
 function createOrderStatusTracker(order) {
@@ -1386,114 +1385,7 @@ function calculateProgressWidth(currentIndex) {
   return progressPercentage;
 }
 
-// Add the required CSS
-// function addStatusTrackerStyles() {
-//   // Check if styles already exist
-//   if (document.getElementById('status-tracker-styles')) return;
 
-//   const styleSheet = document.createElement('style');
-//   styleSheet.id = 'status-tracker-styles';
-//   styleSheet.textContent = `
-//       .order {
-//           background-color: white;
-//           border-radius: 8px;
-//           padding: 20px;
-//           margin-bottom: 20px;
-//           box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-//       }
-
-//       .order-header {
-//           display: flex;
-//           justify-content: space-between;
-//           align-items: center;
-//           border-bottom: 1px solid #eee;
-//           padding-bottom: 10px;
-//           margin-bottom: 15px;
-//       }
-
-//       .status-tracker {
-//           margin: 20px 0;
-//           font-family: Arial, sans-serif;
-//       }
-
-//       .status-labels {
-//           display: flex;
-//           justify-content: space-between;
-//           margin-bottom: 5px;
-//       }
-
-//       .status-label {
-//           font-size: 12px;
-//           color: #555;
-//           text-align: center;
-//           width: 20%;
-//       }
-
-//       .progress-container {
-//           position: relative;
-//           height: 30px;
-//           margin-bottom: 15px;
-//       }
-
-//       .progress-bar-background {
-//           position: absolute;
-//           top: 50%;
-//           transform: translateY(-50%);
-//           height: 12px;
-//           width: 100%;
-//           background-color: #e0e0e0;
-//           border-radius: 10px;
-//       }
-
-//       .progress-bar-fill {
-//           position: absolute;
-//           top: 50%;
-//           transform: translateY(-50%);
-//           height: 12px;
-//           background-color: #008500;
-//           transition: width 0.5s ease;
-//           border-radius: 10px;
-//       }
-
-
-
-//       hr {
-//           border: 0;
-//           height: 1px;
-//           background-color: #eee;
-//           margin: 20px 0;
-//       }
-
-//       /* Preserve existing status indicator styles */
-//       .status-indicator {
-//           padding: 5px 10px;
-//           border-radius: 4px;
-//           font-weight: bold;
-//       }
-
-//       .status-pending {
-//           background-color: #f0c14b;
-//           color: #333;
-//       }
-
-//       .status-processing {
-//           background-color: #4b8bf0;
-//           color: white;
-//       }
-
-//       .status-delivered {
-//           background-color: #4caf50;
-//           color: white;
-//       }
-
-//       .status-error {
-//           background-color: #f44336;
-//           color: white;
-//       }
-//   `;
-
-//   document.head.appendChild(styleSheet);
-// }
 
 // Initial page load
 document.addEventListener('DOMContentLoaded', function () {
