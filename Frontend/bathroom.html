@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mart - Bathroom & Laundry</title>
+    <link rel="stylesheet" href="bathroom.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="Mart Logo">
+                <h1>Mart</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="food.html">Food</a></li>
+                    <li><a href="grocery.html">Grocery</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="bathroom.html">Bathroom & Laundry</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search products..." onkeydown="handleEnter(event)" />
+    <button onclick="searchProducts()">Search</button>
+</div>
+            <a href="cart.html">
+                <div class="cart">
+                    <!-- Link to cart page -->
+                    <img src="cart-icon.png" alt="Cart Icon">
+                    <span class="cart-count">0</span>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Cart Modal -->
+
+
+    <!-- Banner Section -->
+    <main>
+        <div class="banner">
+            <img src="banner-image.jpg" alt="Banner Image">
+        </div>
+
+        <!-- Bathroom & Laundry Section -->
+        <div class="content">
+            <h2>Bathroom & Laundry Collection</h2>
+            <section class="bathroom-items">
+                <!-- Existing 5 items -->
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/08/07/21/33/towel-2608073_1280.jpg" alt="Luxury Bath Towel">
+                    <h3>Luxury Bath Towel</h3>
+                    <p>Price: $12.99</p>
+                    <button onclick="orderNow('Luxury Bath Towel', 12.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2020/12/11/09/53/basket-5822386_1280.jpg" alt="Woven Laundry Basket">
+                    <h3>Woven Laundry Basket</h3>
+                    <p>Price: $19.99</p>
+                    <button onclick="orderNow('Woven Laundry Basket', 19.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2018/08/14/13/50/botanical-3605609_1280.jpg" alt="Herbal Shampoo">
+                    <h3>Herbal Shampoo</h3>
+                    <p>Price: $8.50</p>
+                    <button onclick="orderNow('Herbal Shampoo', 8.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2015/09/09/19/57/cleaning-932936_1280.jpg" alt="Liquid Detergent">
+                    <h3>Liquid Detergent</h3>
+                    <p>Price: $6.75</p>
+                    <button onclick="orderNow('Liquid Detergent', 6.75)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2020/10/10/04/28/bamboo-mat-5641993_1280.jpg" alt="Soft Bath Mat">
+                    <h3>Soft Bath Mat</h3>
+                    <p>Price: $10.99</p>
+                    <button onclick="orderNow('Soft Bath Mat', 10.99)">Add to Cart</button>
+                </div>
+            
+                <!-- Added 32 new items -->
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2018/03/01/16/43/toothbrush-3191097_1280.jpg" alt="Bamboo Toothbrush Set">
+                    <h3>Bamboo Toothbrush Set</h3>
+                    <p>Price: $5.99</p>
+                    <button onclick="orderNow('Bamboo Toothbrush Set', 5.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2019/04/03/07/05/gxl-4099653_1280.jpg" alt="Organic Cotton Swabs">
+                    <h3>Organic Cotton Swabs</h3>
+                    <p>Price: $3.25</p>
+                    <button onclick="orderNow('Organic Cotton Swabs', 3.25)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2020/05/08/15/33/razors-5146216_1280.jpg" alt="Stainless Steel Razor">
+                    <h3>Stainless Steel Razor</h3>
+                    <p>Price: $14.95</p>
+                    <button onclick="orderNow('Stainless Steel Razor', 14.95)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2019/03/20/23/59/essential-oils-4069846_1280.jpg" alt="Essential Oil Diffuser">
+                    <h3>Essential Oil Diffuser</h3>
+                    <p>Price: $22.50</p>
+                    <button onclick="orderNow('Essential Oil Diffuser', 22.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/08/06/04/26/people-2588719_1280.jpg" alt="Plush Robe">
+                    <h3>Plush Robe</h3>
+                    <p>Price: $29.99</p>
+                    <button onclick="orderNow('Plush Robe', 29.99)">Add to Cart</button>
+                </div>
+            
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/07/31/11/39/pink-2557528_1280.jpg" alt="Waterproof Bluetooth Speaker">
+                    <h3>Waterproof Bluetooth Speaker</h3>
+                    <p>Price: $34.99</p>
+                    <button onclick="orderNow('Waterproof Bluetooth Speaker', 34.99)">Add to Cart</button>
+                </div>
+            
+           
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2020/08/10/15/17/chore-5478117_1280.jpg" alt="Exfoliating Gloves">
+                    <h3>Exfoliating Gloves</h3>
+                    <p>Price: $7.25</p>
+                    <button onclick="orderNow('Exfoliating Gloves', 7.25)">Add to Cart</button>
+                </div>
+            
+             
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2016/07/11/15/46/himalayan-1509964_1280.jpg" alt="Bath Salt Set">
+                    <h3>Bath Salt Set</h3>
+                    <p>Price: $12.50</p>
+                    <button onclick="orderNow('Bath Salt Set', 12.50)">Add to Cart</button>
+                </div>
+            
+           
+            
+                <div class="bathroom-item">
+                    <img src="data:image/jpeg;base64,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" alt="Loofah Sponge">
+                    <h3>Loofah Sponge</h3>
+                    <p>Price: $5.50</p>
+                    <button onclick="orderNow('Loofah Sponge', 5.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2014/12/17/17/43/toothbrush-571741_1280.jpg" alt="Toothpaste Tablets">
+                    <h3>Toothpaste Tablets</h3>
+                    <p>Price: $8.75</p>
+                    <button onclick="orderNow('Toothpaste Tablets', 8.75)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1406521012/photo/wooden-soap-dish-isolated-on-a-white-background-empty-rounded-bamboo-soap-holder-cutout-eco.webp?b=1&s=612x612&w=0&k=20&c=tXrLSpQ1364KM5GQXlVEUxhC60JktmL-KB-HZLmPqdA=" alt="Bamboo Soap Dish">
+                    <h3>Bamboo Soap Dish</h3>
+                    <p>Price: $6.25</p>
+                    <button onclick="orderNow('Bamboo Soap Dish', 6.25)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1175294036/photo/close-up-dirty-on-tap-water-filter-valve.webp?b=1&s=612x612&w=0&k=20&c=1H_17P7jVtwaxZJSXNXlE4xlSNrFF9o1I41tNOXGOBc=" alt="Shower Filter">
+                    <h3>Shower Filter</h3>
+                    <p>Price: $24.99</p>
+                    <button onclick="orderNow('Shower Filter', 24.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/497409654/photo/bathbrush.webp?b=1&s=612x612&w=0&k=20&c=6UghSa5YISis6Mswqs4EiclOx2xJtnZfTL28958iL78=" alt="Bath Brush">
+                    <h3>Bath Brush</h3>
+                    <p>Price: $9.25</p>
+                    <button onclick="orderNow('Bath Brush', 9.25)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/05/23/16/23/soap-dispenser-2337697_1280.jpg" alt="Hand Soap Dispenser">
+                    <h3>Hand Soap Dispenser</h3>
+                    <p>Price: $11.50</p>
+                    <button onclick="orderNow('Hand Soap Dispenser', 11.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2013/07/13/12/50/beauty-160456_1280.png" alt="Makeup Mirror">
+                    <h3>Makeup Mirror</h3>
+                    <p>Price: $27.99</p>
+                    <button onclick="orderNow('Makeup Mirror', 27.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1410017429/photo/white-clean-bathrobe-hanging-in-wooden-wardrobe-at-luxury-hotel-or-home-relax-and-travel.webp?b=1&s=612x612&w=0&k=20&c=2vNRL060RpPaJ4n2Hs5GWdRFh5PlIl--RALCdds7_lg=" alt="Cotton Bathrobe">
+                    <h3>Cotton Bathrobe</h3>
+                    <p>Price: $25.50</p>
+                    <button onclick="orderNow('Cotton Bathrobe', 25.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2023/10/20/07/12/scent-8328469_1280.png" alt="Bath Oil">
+                    <h3>Bath Oil</h3>
+                    <p>Price: $14.75</p>
+                    <button onclick="orderNow('Bath Oil', 14.75)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/182869410/photo/clear-shower-curtain-with-a-white-tile-shower.webp?b=1&s=612x612&w=0&k=20&c=cHMqxb61vwNlPRzG_FpBLTxiKRwFqaeorSBirKa_rDY=" alt="Shower Curtain">
+                    <h3>Shower Curtain</h3>
+                    <p>Price: $16.99</p>
+                    <button onclick="orderNow('Shower Curtain', 16.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/2149301936/photo/soap-suds-background-with-copy-space.webp?b=1&s=612x612&w=0&k=20&c=5nCuUrFVuHp7Z0qpWwxPEpQZ5J3uW7sHgrxt0SGgkdM=" alt="Bubble Bath">
+                    <h3>Bubble Bath</h3>
+                    <p>Price: $7.99</p>
+                    <button onclick="orderNow('Bubble Bath', 7.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/860541092/photo/that-the-water-is-correct.webp?b=1&s=612x612&w=0&k=20&c=SSDHMyOxHzBItfJQ_u0rod5GRdxZuTTCpaxLYSK3JUQ=" alt="Bath Thermometer">
+                    <h3>Bath Thermometer</h3>
+                    <p>Price: $5.25</p>
+                    <button onclick="orderNow('Bath Thermometer', 5.25)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2018/03/24/02/26/still-life-3255542_1280.jpg" alt="Toothbrush Holder">
+                    <h3>Toothbrush Holder</h3>
+                    <p>Price: $8.50</p>
+                    <button onclick="orderNow('Toothbrush Holder', 8.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1441822364/photo/feet-of-an-asian-woman-on-a-weight-scale.webp?b=1&s=612x612&w=0&k=20&c=hpFmfZ1RzMxrbJFIhJ9NTmZsznTBQUGU89kkQaPbCMU=" alt="Bathroom Scale">
+                    <h3>Bathroom Scale</h3>
+                    <p>Price: $19.95</p>
+                    <button onclick="orderNow('Bathroom Scale', 19.95)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2016/07/07/16/57/shower-1502736_1280.jpg" alt="Shower Head">
+                    <h3>Shower Head</h3>
+                    <p>Price: $29.50</p>
+                    <button onclick="orderNow('Shower Head', 29.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1188390856/photo/old-fashioned-victorian-bath-tray.webp?b=1&s=612x612&w=0&k=20&c=K_5DLY9PjHb6Qt1g9TkmYPo6cq6HqNyOMziFXBmZhZg=" alt="Bath Tray">
+                    <h3>Bath Tray</h3>
+                    <p>Price: $17.99</p>
+                    <button onclick="orderNow('Bath Tray', 17.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1470583530/photo/mens-grooming-kit.webp?b=1&s=612x612&w=0&k=20&c=rYoWKPY38nYR5_1oZcCjvtzlmwRPX1pwW_c9B1qP6eA=" alt="Bath Bomb Set">
+                    <h3>Bath Bomb Set</h3>
+                    <p>Price: $11.25</p>
+                    <button onclick="orderNow('Bath Bomb Set', 11.25)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2014/02/11/13/27/skin-cleansing-264067_1280.jpg" alt="Facial Cleansing Brush">
+                    <h3>Facial Cleansing Brush</h3>
+                    <p>Price: $12.99</p>
+                    <button onclick="orderNow('Facial Cleansing Brush', 12.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1514566301/photo/towel.webp?b=1&s=612x612&w=0&k=20&c=oqIXCJL5uUmZ-ZSHuyV4BAZZaH3klQiUJ8bYbUYjtVk=" alt="Bathroom Rug Set">
+                    <h3>Bathroom Rug Set</h3>
+                    <p>Price: $15.50</p>
+                    <button onclick="orderNow('Bathroom Rug Set', 15.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2014/03/24/19/02/hairdryer-295617_1280.jpg" alt="Hair Dryer">
+                    <h3>Hair Dryer</h3>
+                    <p>Price: $39.99</p>
+                    <button onclick="orderNow('Hair Dryer', 39.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/08/20/04/toothbrush-2127681_1280.jpg" alt="Electric Toothbrush">
+                    <h3>Electric Toothbrush</h3>
+                    <p>Price: $45.00</p>
+                    <button onclick="orderNow('Electric Toothbrush', 45.00)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2014/04/10/04/17/shower-gel-320691_1280.jpg" alt="Shower Gel">
+                    <h3>Shower Gel</h3>
+                    <p>Price: $6.99</p>
+                    <button onclick="orderNow('Shower Gel', 6.99)">Add to Cart</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="assets/js/script.js"></script>
+    <script src="searchScript.js"></script>
+
+
+
+</body>
+
+</html>

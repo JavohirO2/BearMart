@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="food.css">
+  <link rel="stylesheet" href="bathroom.css">
+  <link rel="stylesheet" href="books.css">
+  <link rel="stylesheet" href="grocery.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="logo.png" alt="Mart Logo">
+        <h1>Mart</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="food.html">Food</a></li>
+          <li><a href="grocery.html">Grocery</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="bathroom.html">Bathroom & Laundry</a></li>
+        </ul>
+      </nav>
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search products..." onkeydown="handleEnter(event)" />
+        <button onclick="searchProducts()">Search</button>
+    </div>
+      <a href="cart.html">
+        <div class="cart">
+          <img src="cart-icon.png" alt="Cart Icon">
+          <span class="cart-count">0</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="banner">
+      <img src="banner-image.jpg" alt="Banner Image">
+    </div>
+
+    <!-- for Food Category Section -->
+
+    <h2 class="h2" style="text-align: center ; margin-block: 10px; color:#e74c3c">Search Results</h2>
+    <div class="content">
+      <section id="fooditems" class="food-items"></section>
+    </div>
+
+    <!-- for Books Category Section -->
+    <div class="content">
+      <section id="bookitems" class="book-items"></section>
+    </div>
+
+    <!-- for Bathroom Category Section -->
+    <div class="content">
+      <section id="bathroom-items" class="bathroom-items"></section>
+    </div>
+  </main>
+
+
+
+
+  <script type="module">
+    import { Items } from "./products.js";
+
+    console.log("Items:", Items);
+    document.addEventListener("DOMContentLoaded", function () {
+      let params = new URLSearchParams(window.location.search);
+      let query = params.get("q") ? params.get("q").toLowerCase() : "";
+
+      let filteredProducts = Items.filter(product => product.name.toLowerCase().includes(query));
+
+      // Clear previous search results
+      document.getElementById("fooditems").innerHTML = "";
+      document.getElementById("bookitems").innerHTML = "";
+      document.getElementById("bathroom-items").innerHTML = "";
+
+      if (filteredProducts.length === 0) {
+        let resultsContainer = document.getElementById("fooditems");
+        resultsContainer.innerHTML = "<p>No products found in food category.</p>";
+        resultsContainer = document.getElementById("bookitems");
+        resultsContainer.innerHTML = "<p>No products found in books category.</p>";
+        resultsContainer = document.getElementById("bathroom-items");
+        resultsContainer.innerHTML = "<p>No products found in bathroom category.</p>";
+      } else {
+        filteredProducts.forEach(product => {
+          let itemHtml = `
+    <div class="${product.category === "Books" ? "book-item" :
+              product.category === "Bathroom" ? "bathroom-item" :
+                product.category === "Food" ? "food-item" : "food-item"}">
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        ${product.category !== "Bathroom" ? `<p>${product.description}</p>` : ""}
+        <p>Price: $${product.price}</p>
+        <button onclick="orderNow('${product.name}', ${product.price})">Order Now</button>
+    </div>
+`;
+
+          // Append to the right section based on category
+          if (product.category === "Food" || product.category === "Groceries") {
+            document.getElementById("fooditems").innerHTML += itemHtml;
+          } else if (product.category === "Books") {
+            document.getElementById("bookitems").innerHTML += itemHtml;
+          } else if (product.category === "Bathroom") {
+            document.getElementById("bathroom-items").innerHTML += itemHtml;
+          }
+        });
+      }
+    });
+
+    // function searchProducts() {
+    //   let query = document.getElementById("search-input").value.trim();
+    //   if (query) {
+    //     window.location.href = `search.html?q=${query}`;
+    //   }
+    // }
+
+    // function orderNow(productName, productPrice) {
+    //   alert(`Order placed for ${productName} costing $${productPrice}`);
+    // }
+  </script>
+
+  <script src="/assets/js/script.js"></script>
+
+
+  <script src="searchScript.js"></script>
+
+
+</body>
+
+</html>
