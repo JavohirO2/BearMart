@@ -91,7 +91,7 @@ async function addToCart(itemName, price) {
     updateCartCount();
 
     try {
-        await fetch("http://localhost:5000/save-cart", {
+        await fetch("https://mart-lime.vercel.app/save-cart", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, cart }),
@@ -201,7 +201,7 @@ async function checkout() {
     const driverId = null;
 
     try {
-        const response = await fetch("http://localhost:5000/checkout", {
+        const response = await fetch("https://mart-lime.vercel.app/checkout", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, orderMethod, driverId }),
@@ -229,7 +229,7 @@ async function loadCart() {
     if (!username) return;
 
     try {
-        const response = await fetch(`http://localhost:5000/get-cart/${username}`);
+        const response = await fetch(`https://mart-lime.vercel.app/get-cart/${username}`);
         const data = await response.json();
 
 
