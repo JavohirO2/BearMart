@@ -9,13 +9,11 @@
 <body>
     <div class="register-page">
         <div class="container">
-            <!-- Left Section with Logo -->
             <div class="left-section">
                 <div class="logo">
                     <img src="logo.png" alt="Logo" class="logo-image">
                 </div>
             </div>
-            <!-- Right Section with Register Form -->
             <div class="right-section">
                 <h1>Register</h1>
                 <form class="form" onsubmit="registerUser(event)">
@@ -34,18 +32,31 @@
     </div>
 
     <script>
-        function registerUser(event) {
+        async function registerUser(event) {
             event.preventDefault();
 
             const username = document.getElementById('reg-username').value;
             const password = document.getElementById('reg-password').value;
 
-            // Save username and password to localStorage
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
+            try {
+                const response = await fetch('http://localhost:5000/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
 
-            alert('Registration successful! You can now login.');
-            window.location.href = 'index.html'; // Redirect to login page
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert("Registration successful! You can now log in.");
+                    window.location.href = 'index.html';
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert("Something went wrong. Please try again.");
+            }
         }
     </script>
 </body>

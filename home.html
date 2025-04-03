@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mart - Home</title>
     <link rel="stylesheet" href="styles-home.css">
+    <link rel="stylesheet" href="food.css">
+    <link rel="stylesheet" href="books.css">
+    <link rel="stylesheet" href="bathroom.css">
+
+
 </head>
+
 <body>
     <header>
         <div class="header-container">
@@ -21,21 +28,358 @@
                     <li><a href="bathroom.html">Bathroom & Laundry</a></li>
                 </ul>
             </nav>
-            <div class="cart">
-                <a href="cart.html"> <!-- Link to cart page -->
+            <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search products..." onkeydown="handleEnter(event)" />
+    <button onclick="searchProducts()">Search</button>
+</div>
+            <a href="cart.html">
+                <div class="cart">
                     <img src="cart-icon.png" alt="Cart Icon">
                     <span class="cart-count">0</span>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
     </header>
-
+    
     <main>
-        <div class="banner">
+        <!-- <div class="banner">
             <img src="banner-image.jpg" alt="Banner Image">
+        </div> -->
+
+
+
+        <div class="container">
+            <img src="/images/main1.jpg" alt="Image 1">
+            <img src="/images/main2.jpg" alt="Image 2">
         </div>
+
+
+        <div class="main-top">
+            <!-- Food Category -->
+
+            <div class="d-flex">
+                <h2 class="h2">Food</h2>
+                <button onclick="window.location.href='food.html'" class="">Explore</button>
+            </div>
+            
+
+
+
+            <section class="food-items">
+                <div class="food-item">
+                    <img src="images/1.png" alt="Burger">
+                    <h3>Burger</h3>
+                    <p>Delicious grilled burger with fries.</p>
+                    <p>Price: $5.00</p>
+                    <button onclick="orderNow('Burger','5.00')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="images/2.jpg" alt="Wrap">
+                    <h3>Wrap</h3>
+                    <p>Healthy and tasty veggie wrap.</p>
+                    <p>Price: $4.50</p>
+                    <button onclick="orderNow('Wrap','4.50')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="images/3.jpg" alt="Sandwich">
+                    <h3>Sandwich</h3>
+                    <p>Freshly made sandwich with delicious fillings.</p>
+                    <p>Price: $6.00</p>
+                    <button onclick="orderNow('Sandwich','6.00')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="images/4.jpg" alt="Meatballs">
+                    <h3>Meatballs</h3>
+                    <p>Savory meatballs in a flavorful sauce.</p>
+                    <p>Price: $7.00</p>
+                    <button onclick="orderNow('Meatballs','7.00')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="images/5.jpg" alt="Biryani">
+                    <h3>Biryani</h3>
+                    <p>Spiced rice with meat and herbs.</p>
+                    <p>Price: $8.00</p>
+                    <button onclick="orderNow('Biryani','8.00')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="images/6.jpg" alt="Pizza">
+                    <h3>Pizza</h3>
+                    <p>Hot and cheesy pizza with fresh toppings.</p>
+                    <p>Price: $9.00</p>
+                    <button onclick="orderNow('Pizza','9.00')">Order Now</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="images/7.jpg" alt="Bread">
+                    <h3>Bread</h3>
+                    <p>Freshly baked bread, warm and soft.</p>
+                    <p>Price: $2.50</p>
+                    <button onclick="orderNow('Bread','2.50')">Order Now</button>
+                </div>
+
+            </section>
+
+
+
+            <!-- Groceries -->
+
+            <div class="d-flex">
+                <h2 class="h2">Grocery</h2>
+                <button onclick="window.location.href='grocery.html'" class="">Explore</button>
+            </div>
+
+
+            <div class="food-items " style="margin-top: 10px;">
+                <!-- Fruits -->
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1573246123716-6b1782bfc499" alt="Fresh Apples">
+                    <h3>Organic Apples</h3>
+                    <p>Price: $3.99</p>
+                    <p>Quantity Available: 75</p>
+                    <button onclick="orderNow('Organic Apples', 3.99)">Add to Cart</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2024/04/25/06/50/banana-8719086_1280.jpg" alt="Bananas">
+                    <h3>Fair Trade Bananas</h3>
+                    <p>Price: $0.69</p>
+                    <p>Quantity Available: 120</p>
+                    <button onclick="orderNow('Fair Trade Bananas', 0.69)">Add to Cart</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2016/10/07/13/36/tangerines-1721590_1280.jpg" alt="Oranges">
+                    <h3>Juicy Oranges</h3>
+                    <p>Price: $2.49</p>
+                    <p>Quantity Available: 90</p>
+                    <button onclick="orderNow('Juicy Oranges', 2.49)">Add to Cart</button>
+                </div>
+
+                <!-- Vegetables -->
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4" alt="Carrots">
+                    <h3>Organic Carrots</h3>
+                    <p>Price: $1.99</p>
+                    <p>Quantity Available: 60</p>
+                    <button onclick="orderNow('Organic Carrots', 1.99)">Add to Cart</button>
+                </div>
+
+
+
+
+
+                <!-- Dairy -->
+                <div class="food-item">
+                    <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150" alt="Milk">
+                    <h3>Organic Whole Milk</h3>
+                    <p>Price: $4.49/gallon</p>
+                    <p>Quantity Available: 40</p>
+                    <button onclick="orderNow('Organic Whole Milk', 4.49)">Add to Cart</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2021/06/30/20/31/cheese-6377662_1280.jpg" alt="Cheese">
+                    <h3>Sharp Cheddar</h3>
+                    <p>Price: $5.99</p>
+                    <p>Quantity Available: 30</p>
+                    <button onclick="orderNow('Sharp Cheddar', 5.99)">Add to Cart</button>
+                </div>
+
+                <div class="food-item">
+                    <img src="https://cdn.pixabay.com/photo/2022/07/26/13/55/egg-7345934_1280.jpg" alt="Eggs">
+                    <h3>Free Range Eggs</h3>
+                    <p>Price: $3.99/dozen</p>
+                    <p>Quantity Available: 50</p>
+                    <button onclick="orderNow('Free Range Eggs', 3.99)">Add to Cart</button>
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="d-flex">
+                <h2 class="h2">Books Collection</h2>
+                <button onclick="window.location.href='books.html'" class="">Explore</button>
+            </div>
+
+            <section class="book-items"  style="margin-top: 10px;">
+                <!-- Book 1 -->
+                <div class="book-item">
+                    <img src="https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UF1000,1000_QL80_.jpg"
+                        alt="Atomic Habits">
+                    <h3>Atomic Habits</h3>
+                    <p>Author: James Clear</p>
+                    <p>Price: $16.20</p>
+                    <button onclick="orderNow('Atomic Habits', 16.20)">Order Now</button>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="book-item">
+                    <img src="https://m.media-amazon.com/images/I/71aFt4+OTOL._AC_UF1000,1000_QL80_.jpg"
+                        alt="The Alchemist">
+                    <h3>The Alchemist</h3>
+                    <p>Author: Paulo Coelho</p>
+                    <p>Price: $11.89</p>
+                    <button onclick="orderNow('The Alchemist', 11.89)">Order Now</button>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="book-item">
+                    <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF1000,1000_QL80_.jpg"
+                        alt="Rich Dad Poor Dad">
+                    <h3>Rich Dad Poor Dad</h3>
+                    <p>Author: Robert Kiyosaki</p>
+                    <p>Price: $7.98</p>
+                    <button onclick="orderNow('Rich Dad Poor Dad', 7.98)">Order Now</button>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="book-item">
+                    <img src="data:image/jpeg;base64,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"
+                        alt="The Power of Habit">
+                    <h3>The Power of Habit</h3>
+                    <p>Author: Charles Duhigg</p>
+                    <p>Price: $13.99</p>
+                    <button onclick="orderNow('The Power of Habit', 13.99)">Order Now</button>
+                </div>
+
+
+
+
+
+
+                <!-- Book 6 -->
+                <div class="book-item">
+                    <img src="https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UF1000,1000_QL80_.jpg"
+                        alt="The Psychology of Money">
+                    <h3>The Psychology of Money</h3>
+                    <p>Author: Morgan Housel</p>
+                    <p>Price: $14.25</p>
+                    <button onclick="orderNow('The Psychology of Money', 14.25)">Order Now</button>
+                </div>
+
+                <!-- Book 7 -->
+                <div class="book-item">
+                    <img src="https://m.media-amazon.com/images/I/71zytzrg6lL._AC_UF1000,1000_QL80_.jpg"
+                        alt="The 5 AM Club">
+                    <h3>The 5 AM Club</h3>
+                    <p>Author: Robin Sharma</p>
+                    <p>Price: $18.89</p>
+                    <button onclick="orderNow('The 5 AM Club', 18.89)">Order Now</button>
+                </div>
+
+
+
+                <!-- Book 24 -->
+                <div class="book-item">
+                    <img src="https://m.media-amazon.com/images/I/81RCff1NpnL._AC_UF1000,1000_QL80_.jpg"
+                        alt="The Lean Startup">
+                    <h3>The Lean Startup</h3>
+                    <p>Author: Eric Ries</p>
+                    <p>Price: $14.25</p>
+                    <button onclick="orderNow('The Lean Startup', 14.25)">Order Now</button>
+                </div>
+
+
+
+
+
+
+
+
+            </section>
+
+
+            <div class="d-flex">
+                <h2 class="h2">Bathroom & Laundry Collection</h2>
+                <button onclick="window.location.href='bathroom.html'" class="">Explore</button>
+            </div>
+
+
+            <section class="bathroom-items" style="margin-top: 10px;">
+                <!-- Existing 5 items -->
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/08/07/21/33/towel-2608073_1280.jpg" alt="Luxury Bath Towel">
+                    <h3>Luxury Bath Towel</h3>
+                    <p>Price: $12.99</p>
+                    <button onclick="orderNow('Luxury Bath Towel', 12.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2020/12/11/09/53/basket-5822386_1280.jpg" alt="Woven Laundry Basket">
+                    <h3>Woven Laundry Basket</h3>
+                    <p>Price: $19.99</p>
+                    <button onclick="orderNow('Woven Laundry Basket', 19.99)">Add to Cart</button>
+                </div>
+            
+             
+               
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/860541092/photo/that-the-water-is-correct.webp?b=1&s=612x612&w=0&k=20&c=SSDHMyOxHzBItfJQ_u0rod5GRdxZuTTCpaxLYSK3JUQ=" alt="Bath Thermometer">
+                    <h3>Bath Thermometer</h3>
+                    <p>Price: $5.25</p>
+                    <button onclick="orderNow('Bath Thermometer', 5.25)">Add to Cart</button>
+                </div>
+            
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1441822364/photo/feet-of-an-asian-woman-on-a-weight-scale.webp?b=1&s=612x612&w=0&k=20&c=hpFmfZ1RzMxrbJFIhJ9NTmZsznTBQUGU89kkQaPbCMU=" alt="Bathroom Scale">
+                    <h3>Bathroom Scale</h3>
+                    <p>Price: $19.95</p>
+                    <button onclick="orderNow('Bathroom Scale', 19.95)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2016/07/07/16/57/shower-1502736_1280.jpg" alt="Shower Head">
+                    <h3>Shower Head</h3>
+                    <p>Price: $29.50</p>
+                    <button onclick="orderNow('Shower Head', 29.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1188390856/photo/old-fashioned-victorian-bath-tray.webp?b=1&s=612x612&w=0&k=20&c=K_5DLY9PjHb6Qt1g9TkmYPo6cq6HqNyOMziFXBmZhZg=" alt="Bath Tray">
+                    <h3>Bath Tray</h3>
+                    <p>Price: $17.99</p>
+                    <button onclick="orderNow('Bath Tray', 17.99)">Add to Cart</button>
+                </div>
+            
+              
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2014/02/11/13/27/skin-cleansing-264067_1280.jpg" alt="Facial Cleansing Brush">
+                    <h3>Facial Cleansing Brush</h3>
+                    <p>Price: $12.99</p>
+                    <button onclick="orderNow('Facial Cleansing Brush', 12.99)">Add to Cart</button>
+                </div>
+            
+              
+               
+            </section>
+
+
+
+        </div>
+
+
+
+
     </main>
 
     <script src="scripts.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <script src="searchScript.js"></script>
+
+
 </body>
+
 </html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mart - Bathroom & Laundry</title>
     <link rel="stylesheet" href="bathroom.css">
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
@@ -22,17 +24,22 @@
                     <li><a href="bathroom.html">Bathroom & Laundry</a></li>
                 </ul>
             </nav>
-            <div class="cart">
-                <a href="cart.html"> <!-- Link to cart page -->
+            <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search products..." onkeydown="handleEnter(event)" />
+    <button onclick="searchProducts()">Search</button>
+</div>
+            <a href="cart.html">
+                <div class="cart">
+                    <!-- Link to cart page -->
                     <img src="cart-icon.png" alt="Cart Icon">
                     <span class="cart-count">0</span>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
     </header>
 
     <!-- Cart Modal -->
-    
+
 
     <!-- Banner Section -->
     <main>
@@ -44,44 +51,266 @@
         <div class="content">
             <h2>Bathroom & Laundry Collection</h2>
             <section class="bathroom-items">
+                <!-- Existing 5 items -->
                 <div class="bathroom-item">
-                    <img src="data:image/jpeg;base64,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" alt="Towel">
+                    <img src="https://cdn.pixabay.com/photo/2017/08/07/21/33/towel-2608073_1280.jpg" alt="Luxury Bath Towel">
                     <h3>Luxury Bath Towel</h3>
                     <p>Price: $12.99</p>
                     <button onclick="orderNow('Luxury Bath Towel', 12.99)">Add to Cart</button>
                 </div>
-                
+            
                 <div class="bathroom-item">
-                    <img src="data:image/jpeg;base64,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" alt="Laundry Basket">
+                    <img src="https://cdn.pixabay.com/photo/2020/12/11/09/53/basket-5822386_1280.jpg" alt="Woven Laundry Basket">
                     <h3>Woven Laundry Basket</h3>
                     <p>Price: $19.99</p>
                     <button onclick="orderNow('Woven Laundry Basket', 19.99)">Add to Cart</button>
                 </div>
-                
+            
                 <div class="bathroom-item">
-                    <img src="https://static.beautytocare.com/cdn-cgi/image/width=1600,height=1600,f=auto/media/catalog/product//h/e/herbal-essences-bio-renew-repair-argan-oil-shampoo-680ml_1.jpg" alt="Shampoo">
+                    <img src="https://cdn.pixabay.com/photo/2018/08/14/13/50/botanical-3605609_1280.jpg" alt="Herbal Shampoo">
                     <h3>Herbal Shampoo</h3>
                     <p>Price: $8.50</p>
                     <button onclick="orderNow('Herbal Shampoo', 8.50)">Add to Cart</button>
                 </div>
-
+            
                 <div class="bathroom-item">
-                    <img src="data:image/jpeg;base64,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" alt="Detergent">
+                    <img src="https://cdn.pixabay.com/photo/2015/09/09/19/57/cleaning-932936_1280.jpg" alt="Liquid Detergent">
                     <h3>Liquid Detergent</h3>
                     <p>Price: $6.75</p>
                     <button onclick="orderNow('Liquid Detergent', 6.75)">Add to Cart</button>
                 </div>
-
+            
                 <div class="bathroom-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE1dN9Q_Sp9oj22V-7gS_u-fhzlyOVrfgiKA&s" alt="Bath Mat">
+                    <img src="https://cdn.pixabay.com/photo/2020/10/10/04/28/bamboo-mat-5641993_1280.jpg" alt="Soft Bath Mat">
                     <h3>Soft Bath Mat</h3>
                     <p>Price: $10.99</p>
                     <button onclick="orderNow('Soft Bath Mat', 10.99)">Add to Cart</button>
                 </div>
+            
+                <!-- Added 32 new items -->
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2018/03/01/16/43/toothbrush-3191097_1280.jpg" alt="Bamboo Toothbrush Set">
+                    <h3>Bamboo Toothbrush Set</h3>
+                    <p>Price: $5.99</p>
+                    <button onclick="orderNow('Bamboo Toothbrush Set', 5.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2019/04/03/07/05/gxl-4099653_1280.jpg" alt="Organic Cotton Swabs">
+                    <h3>Organic Cotton Swabs</h3>
+                    <p>Price: $3.25</p>
+                    <button onclick="orderNow('Organic Cotton Swabs', 3.25)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2020/05/08/15/33/razors-5146216_1280.jpg" alt="Stainless Steel Razor">
+                    <h3>Stainless Steel Razor</h3>
+                    <p>Price: $14.95</p>
+                    <button onclick="orderNow('Stainless Steel Razor', 14.95)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2019/03/20/23/59/essential-oils-4069846_1280.jpg" alt="Essential Oil Diffuser">
+                    <h3>Essential Oil Diffuser</h3>
+                    <p>Price: $22.50</p>
+                    <button onclick="orderNow('Essential Oil Diffuser', 22.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/08/06/04/26/people-2588719_1280.jpg" alt="Plush Robe">
+                    <h3>Plush Robe</h3>
+                    <p>Price: $29.99</p>
+                    <button onclick="orderNow('Plush Robe', 29.99)">Add to Cart</button>
+                </div>
+            
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/07/31/11/39/pink-2557528_1280.jpg" alt="Waterproof Bluetooth Speaker">
+                    <h3>Waterproof Bluetooth Speaker</h3>
+                    <p>Price: $34.99</p>
+                    <button onclick="orderNow('Waterproof Bluetooth Speaker', 34.99)">Add to Cart</button>
+                </div>
+            
+           
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2020/08/10/15/17/chore-5478117_1280.jpg" alt="Exfoliating Gloves">
+                    <h3>Exfoliating Gloves</h3>
+                    <p>Price: $7.25</p>
+                    <button onclick="orderNow('Exfoliating Gloves', 7.25)">Add to Cart</button>
+                </div>
+            
+             
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2016/07/11/15/46/himalayan-1509964_1280.jpg" alt="Bath Salt Set">
+                    <h3>Bath Salt Set</h3>
+                    <p>Price: $12.50</p>
+                    <button onclick="orderNow('Bath Salt Set', 12.50)">Add to Cart</button>
+                </div>
+            
+           
+            
+                <div class="bathroom-item">
+                    <img src="data:image/jpeg;base64,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" alt="Loofah Sponge">
+                    <h3>Loofah Sponge</h3>
+                    <p>Price: $5.50</p>
+                    <button onclick="orderNow('Loofah Sponge', 5.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2014/12/17/17/43/toothbrush-571741_1280.jpg" alt="Toothpaste Tablets">
+                    <h3>Toothpaste Tablets</h3>
+                    <p>Price: $8.75</p>
+                    <button onclick="orderNow('Toothpaste Tablets', 8.75)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1406521012/photo/wooden-soap-dish-isolated-on-a-white-background-empty-rounded-bamboo-soap-holder-cutout-eco.webp?b=1&s=612x612&w=0&k=20&c=tXrLSpQ1364KM5GQXlVEUxhC60JktmL-KB-HZLmPqdA=" alt="Bamboo Soap Dish">
+                    <h3>Bamboo Soap Dish</h3>
+                    <p>Price: $6.25</p>
+                    <button onclick="orderNow('Bamboo Soap Dish', 6.25)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1175294036/photo/close-up-dirty-on-tap-water-filter-valve.webp?b=1&s=612x612&w=0&k=20&c=1H_17P7jVtwaxZJSXNXlE4xlSNrFF9o1I41tNOXGOBc=" alt="Shower Filter">
+                    <h3>Shower Filter</h3>
+                    <p>Price: $24.99</p>
+                    <button onclick="orderNow('Shower Filter', 24.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/497409654/photo/bathbrush.webp?b=1&s=612x612&w=0&k=20&c=6UghSa5YISis6Mswqs4EiclOx2xJtnZfTL28958iL78=" alt="Bath Brush">
+                    <h3>Bath Brush</h3>
+                    <p>Price: $9.25</p>
+                    <button onclick="orderNow('Bath Brush', 9.25)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/05/23/16/23/soap-dispenser-2337697_1280.jpg" alt="Hand Soap Dispenser">
+                    <h3>Hand Soap Dispenser</h3>
+                    <p>Price: $11.50</p>
+                    <button onclick="orderNow('Hand Soap Dispenser', 11.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2013/07/13/12/50/beauty-160456_1280.png" alt="Makeup Mirror">
+                    <h3>Makeup Mirror</h3>
+                    <p>Price: $27.99</p>
+                    <button onclick="orderNow('Makeup Mirror', 27.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1410017429/photo/white-clean-bathrobe-hanging-in-wooden-wardrobe-at-luxury-hotel-or-home-relax-and-travel.webp?b=1&s=612x612&w=0&k=20&c=2vNRL060RpPaJ4n2Hs5GWdRFh5PlIl--RALCdds7_lg=" alt="Cotton Bathrobe">
+                    <h3>Cotton Bathrobe</h3>
+                    <p>Price: $25.50</p>
+                    <button onclick="orderNow('Cotton Bathrobe', 25.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2023/10/20/07/12/scent-8328469_1280.png" alt="Bath Oil">
+                    <h3>Bath Oil</h3>
+                    <p>Price: $14.75</p>
+                    <button onclick="orderNow('Bath Oil', 14.75)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/182869410/photo/clear-shower-curtain-with-a-white-tile-shower.webp?b=1&s=612x612&w=0&k=20&c=cHMqxb61vwNlPRzG_FpBLTxiKRwFqaeorSBirKa_rDY=" alt="Shower Curtain">
+                    <h3>Shower Curtain</h3>
+                    <p>Price: $16.99</p>
+                    <button onclick="orderNow('Shower Curtain', 16.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/2149301936/photo/soap-suds-background-with-copy-space.webp?b=1&s=612x612&w=0&k=20&c=5nCuUrFVuHp7Z0qpWwxPEpQZ5J3uW7sHgrxt0SGgkdM=" alt="Bubble Bath">
+                    <h3>Bubble Bath</h3>
+                    <p>Price: $7.99</p>
+                    <button onclick="orderNow('Bubble Bath', 7.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/860541092/photo/that-the-water-is-correct.webp?b=1&s=612x612&w=0&k=20&c=SSDHMyOxHzBItfJQ_u0rod5GRdxZuTTCpaxLYSK3JUQ=" alt="Bath Thermometer">
+                    <h3>Bath Thermometer</h3>
+                    <p>Price: $5.25</p>
+                    <button onclick="orderNow('Bath Thermometer', 5.25)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2018/03/24/02/26/still-life-3255542_1280.jpg" alt="Toothbrush Holder">
+                    <h3>Toothbrush Holder</h3>
+                    <p>Price: $8.50</p>
+                    <button onclick="orderNow('Toothbrush Holder', 8.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1441822364/photo/feet-of-an-asian-woman-on-a-weight-scale.webp?b=1&s=612x612&w=0&k=20&c=hpFmfZ1RzMxrbJFIhJ9NTmZsznTBQUGU89kkQaPbCMU=" alt="Bathroom Scale">
+                    <h3>Bathroom Scale</h3>
+                    <p>Price: $19.95</p>
+                    <button onclick="orderNow('Bathroom Scale', 19.95)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2016/07/07/16/57/shower-1502736_1280.jpg" alt="Shower Head">
+                    <h3>Shower Head</h3>
+                    <p>Price: $29.50</p>
+                    <button onclick="orderNow('Shower Head', 29.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1188390856/photo/old-fashioned-victorian-bath-tray.webp?b=1&s=612x612&w=0&k=20&c=K_5DLY9PjHb6Qt1g9TkmYPo6cq6HqNyOMziFXBmZhZg=" alt="Bath Tray">
+                    <h3>Bath Tray</h3>
+                    <p>Price: $17.99</p>
+                    <button onclick="orderNow('Bath Tray', 17.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1470583530/photo/mens-grooming-kit.webp?b=1&s=612x612&w=0&k=20&c=rYoWKPY38nYR5_1oZcCjvtzlmwRPX1pwW_c9B1qP6eA=" alt="Bath Bomb Set">
+                    <h3>Bath Bomb Set</h3>
+                    <p>Price: $11.25</p>
+                    <button onclick="orderNow('Bath Bomb Set', 11.25)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2014/02/11/13/27/skin-cleansing-264067_1280.jpg" alt="Facial Cleansing Brush">
+                    <h3>Facial Cleansing Brush</h3>
+                    <p>Price: $12.99</p>
+                    <button onclick="orderNow('Facial Cleansing Brush', 12.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://media.istockphoto.com/id/1514566301/photo/towel.webp?b=1&s=612x612&w=0&k=20&c=oqIXCJL5uUmZ-ZSHuyV4BAZZaH3klQiUJ8bYbUYjtVk=" alt="Bathroom Rug Set">
+                    <h3>Bathroom Rug Set</h3>
+                    <p>Price: $15.50</p>
+                    <button onclick="orderNow('Bathroom Rug Set', 15.50)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2014/03/24/19/02/hairdryer-295617_1280.jpg" alt="Hair Dryer">
+                    <h3>Hair Dryer</h3>
+                    <p>Price: $39.99</p>
+                    <button onclick="orderNow('Hair Dryer', 39.99)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/08/20/04/toothbrush-2127681_1280.jpg" alt="Electric Toothbrush">
+                    <h3>Electric Toothbrush</h3>
+                    <p>Price: $45.00</p>
+                    <button onclick="orderNow('Electric Toothbrush', 45.00)">Add to Cart</button>
+                </div>
+            
+                <div class="bathroom-item">
+                    <img src="https://cdn.pixabay.com/photo/2014/04/10/04/17/shower-gel-320691_1280.jpg" alt="Shower Gel">
+                    <h3>Shower Gel</h3>
+                    <p>Price: $6.99</p>
+                    <button onclick="orderNow('Shower Gel', 6.99)">Add to Cart</button>
+                </div>
             </section>
         </div>
     </main>
+    <script src="assets/js/script.js"></script>
+    <script src="searchScript.js"></script>
+
 
 
 </body>
+
 </html>
